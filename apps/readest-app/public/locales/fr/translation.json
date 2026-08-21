@@ -2251,5 +2251,22 @@
   "Playback interrupted, tap play to retry": "Lecture interrompue, appuyez sur lecture pour réessayer",
   "Unable to connect to {{server}}": "Impossible de se connecter à {{server}}",
   "Audiobookshelf server not found": "Serveur Audiobookshelf introuvable",
-  "Episode not found": "Épisode introuvable"
+  "Episode not found": "Épisode introuvable",
+  "Ask AI": "Demander à l'IA",
+  "Ask AI about text after selection": "Demander à l'IA à propos du texte sélectionné",
+  "this book": "ce livre",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Activez l'assistant IA dans Paramètres → Assistant IA pour poser des questions sur une sélection.",
+  "Pick a question above, or type your own.": "Choisissez une question ci-dessus ou saisissez la vôtre.",
+  "Ask about this passage...": "Posez une question sur ce passage...",
+  "Continue in Notebook": "Continuer dans le carnet de notes",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Configuration Anthropic",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Utilisez votre propre clé API Anthropic pour dialoguer directement avec Claude. Notez qu'Anthropic ne propose pas d'API d'embeddings : l'indexation des livres nécessite Ollama ou un fournisseur compatible OpenAI.",
+  "OpenAI Configuration": "Configuration OpenAI",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "Utilisez votre propre clé API OpenAI. Contrairement à Anthropic, OpenAI fournit aussi des embeddings, donc l'indexation des livres fonctionne avec ce fournisseur.",
+  "Explain": "Expliquer",
+  "Summarize": "Résumer",
+  "Background": "Contexte",
+  "Vocabulary": "Vocabulaire"
 }

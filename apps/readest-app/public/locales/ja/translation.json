@@ -2133,5 +2133,22 @@
   "Playback interrupted, tap play to retry": "再生が中断されました。タップして再試行してください",
   "Unable to connect to {{server}}": "{{server}}に接続できません",
   "Audiobookshelf server not found": "Audiobookshelfサーバーが見つかりません",
-  "Episode not found": "エピソードが見つかりません"
+  "Episode not found": "エピソードが見つかりません",
+  "Ask AI": "AIに質問",
+  "Ask AI about text after selection": "選択したテキストについてAIに質問",
+  "this book": "この本",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "選択箇所について質問するには、設定 → AIアシスタント でAIアシスタントを有効にしてください。",
+  "Pick a question above, or type your own.": "上の質問を選ぶか、自由に入力してください。",
+  "Ask about this passage...": "この文章について質問する...",
+  "Continue in Notebook": "ノートで続ける",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Anthropic設定",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "ご自身のAnthropic APIキーでClaudeに直接接続します。AnthropicにはEmbedding APIがないため、書籍のインデックス作成にはOllamaまたはOpenAI互換プロバイダーが必要です。",
+  "OpenAI Configuration": "OpenAI設定",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "ご自身のOpenAI APIキーを使用します。Anthropicと異なりOpenAIはEmbeddingも提供するため、このプロバイダーで書籍のインデックス作成が行えます。",
+  "Explain": "説明",
+  "Summarize": "要約",
+  "Background": "背景",
+  "Vocabulary": "語彙"
 }

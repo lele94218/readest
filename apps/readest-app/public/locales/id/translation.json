@@ -2133,5 +2133,22 @@
   "Playback interrupted, tap play to retry": "Pemutaran terhenti, ketuk putar untuk mencoba lagi",
   "Unable to connect to {{server}}": "Tidak dapat terhubung ke {{server}}",
   "Audiobookshelf server not found": "Server Audiobookshelf tidak ditemukan",
-  "Episode not found": "Episode tidak ditemukan"
+  "Episode not found": "Episode tidak ditemukan",
+  "Ask AI": "Tanya AI",
+  "Ask AI about text after selection": "Tanya AI tentang teks yang dipilih",
+  "this book": "buku ini",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Aktifkan asisten AI di Pengaturan → Asisten AI untuk bertanya tentang teks yang dipilih.",
+  "Pick a question above, or type your own.": "Pilih pertanyaan di atas, atau tulis sendiri.",
+  "Ask about this passage...": "Tanyakan tentang bagian ini...",
+  "Continue in Notebook": "Lanjutkan di Buku Catatan",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Konfigurasi Anthropic",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Gunakan kunci API Anthropic Anda sendiri untuk berbicara langsung dengan Claude. Perhatikan bahwa Anthropic tidak memiliki API embedding, jadi pengindeksan buku memerlukan Ollama atau penyedia yang kompatibel dengan OpenAI.",
+  "OpenAI Configuration": "Konfigurasi OpenAI",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "Gunakan kunci API OpenAI Anda sendiri. Tidak seperti Anthropic, OpenAI juga menyediakan embedding, sehingga pengindeksan buku berfungsi pada penyedia ini.",
+  "Explain": "Jelaskan",
+  "Summarize": "Ringkas",
+  "Background": "Latar Belakang",
+  "Vocabulary": "Kosakata"
 }

@@ -2310,5 +2310,22 @@
   "Playback interrupted, tap play to retry": "Воспроизведение прервано, нажмите «Воспроизвести», чтобы повторить",
   "Unable to connect to {{server}}": "Не удалось подключиться к {{server}}",
   "Audiobookshelf server not found": "Сервер Audiobookshelf не найден",
-  "Episode not found": "Эпизод не найден"
+  "Episode not found": "Эпизод не найден",
+  "Ask AI": "Спросить ИИ",
+  "Ask AI about text after selection": "Спросить ИИ о выделенном тексте",
+  "this book": "эта книга",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Включите ИИ-ассистента в Настройки → ИИ-ассистент, чтобы задавать вопросы о выделенном тексте.",
+  "Pick a question above, or type your own.": "Выберите вопрос выше или введите свой.",
+  "Ask about this passage...": "Спросите об этом отрывке...",
+  "Continue in Notebook": "Продолжить в блокноте",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Настройка Anthropic",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Используйте собственный ключ API Anthropic для прямого общения с Claude. Обратите внимание: у Anthropic нет API эмбеддингов, поэтому для индексации книг нужен Ollama или совместимый с OpenAI провайдер.",
+  "OpenAI Configuration": "Настройка OpenAI",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "Используйте собственный ключ API OpenAI. В отличие от Anthropic, OpenAI также предоставляет эмбеддинги, поэтому индексация книг работает с этим провайдером.",
+  "Explain": "Объяснить",
+  "Summarize": "Кратко изложить",
+  "Background": "Контекст",
+  "Vocabulary": "Словарь"
 }

@@ -2192,5 +2192,22 @@
   "Playback interrupted, tap play to retry": "پخش قطع شد، برای تلاش دوباره روی پخش ضربه بزنید",
   "Unable to connect to {{server}}": "اتصال به {{server}} ممکن نیست",
   "Audiobookshelf server not found": "سرور Audiobookshelf یافت نشد",
-  "Episode not found": "قسمت یافت نشد"
+  "Episode not found": "قسمت یافت نشد",
+  "Ask AI": "پرسش از هوش مصنوعی",
+  "Ask AI about text after selection": "پرسش از هوش مصنوعی درباره متن انتخاب‌شده",
+  "this book": "این کتاب",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "برای پرسیدن درباره یک انتخاب، دستیار هوش مصنوعی را در تنظیمات ← دستیار هوش مصنوعی فعال کنید.",
+  "Pick a question above, or type your own.": "یکی از پرسش‌های بالا را انتخاب کنید یا پرسش خود را بنویسید.",
+  "Ask about this passage...": "درباره این بخش بپرسید...",
+  "Continue in Notebook": "ادامه در دفترچه یادداشت",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "پیکربندی Anthropic",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "از کلید API شخصی Anthropic خود برای گفت‌وگوی مستقیم با Claude استفاده کنید. توجه کنید که Anthropic API تعبیه‌سازی ندارد، بنابراین نمایه‌سازی کتاب به Ollama یا یک ارائه‌دهنده سازگار با OpenAI نیاز دارد.",
+  "OpenAI Configuration": "پیکربندی OpenAI",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "از کلید API شخصی OpenAI خود استفاده کنید. برخلاف Anthropic، OpenAI تعبیه‌سازی هم ارائه می‌دهد، بنابراین نمایه‌سازی کتاب با این ارائه‌دهنده کار می‌کند.",
+  "Explain": "توضیح",
+  "Summarize": "خلاصه",
+  "Background": "پیشینه",
+  "Vocabulary": "واژگان"
 }

@@ -2192,5 +2192,22 @@
   "Playback interrupted, tap play to retry": "A lejátszás megszakadt, koppintson a lejátszásra az újrapróbálkozáshoz",
   "Unable to connect to {{server}}": "Nem sikerült csatlakozni ehhez: {{server}}",
   "Audiobookshelf server not found": "Az Audiobookshelf szerver nem található",
-  "Episode not found": "Az epizód nem található"
+  "Episode not found": "Az epizód nem található",
+  "Ask AI": "Kérdezd az AI-t",
+  "Ask AI about text after selection": "Kérdezd az AI-t a kijelölt szövegről",
+  "this book": "ez a könyv",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Kapcsold be az AI asszisztenst a Beállítások → AI asszisztens menüben, hogy kérdezhess a kijelölésről.",
+  "Pick a question above, or type your own.": "Válassz egy fenti kérdést, vagy írd meg a sajátodat.",
+  "Ask about this passage...": "Kérdezz erről a részletről...",
+  "Continue in Notebook": "Folytatás a jegyzetfüzetben",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Anthropic konfiguráció",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Használd a saját Anthropic API-kulcsodat, hogy közvetlenül a Claude-dal beszélgess. Az Anthropicnak nincs beágyazási API-ja, ezért a könyvindexeléshez Ollama vagy OpenAI-kompatibilis szolgáltató kell.",
+  "OpenAI Configuration": "OpenAI konfiguráció",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "Használd a saját OpenAI API-kulcsodat. Az Anthropickal ellentétben az OpenAI beágyazásokat is kínál, így a könyvindexelés működik ezzel a szolgáltatóval.",
+  "Explain": "Magyarázd el",
+  "Summarize": "Foglald össze",
+  "Background": "Háttér",
+  "Vocabulary": "Szókincs"
 }

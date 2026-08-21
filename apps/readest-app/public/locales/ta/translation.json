@@ -2192,5 +2192,22 @@
   "Playback interrupted, tap play to retry": "இயக்கம் தடைபட்டது, மீண்டும் முயற்சிக்க பிளேயைத் தட்டவும்",
   "Unable to connect to {{server}}": "{{server}} உடன் இணைக்க முடியவில்லை",
   "Audiobookshelf server not found": "Audiobookshelf சர்வர் கிடைக்கவில்லை",
-  "Episode not found": "எபிசோட் கிடைக்கவில்லை"
+  "Episode not found": "எபிசோட் கிடைக்கவில்லை",
+  "Ask AI": "AI-யிடம் கேள்",
+  "Ask AI about text after selection": "தேர்ந்தெடுத்த உரை குறித்து AI-யிடம் கேள்",
+  "this book": "இந்தப் புத்தகம்",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "தேர்ந்தெடுத்த பகுதி குறித்துக் கேட்க அமைப்புகள் → AI உதவியாளர் என்பதில் AI உதவியாளரை இயக்கவும்.",
+  "Pick a question above, or type your own.": "மேலே உள்ள கேள்வியைத் தேர்ந்தெடுக்கவும், அல்லது உங்கள் கேள்வியைத் தட்டச்சு செய்யவும்.",
+  "Ask about this passage...": "இந்தப் பகுதி குறித்துக் கேளுங்கள்...",
+  "Continue in Notebook": "குறிப்பேட்டில் தொடரவும்",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Anthropic உள்ளமைவு",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Claude உடன் நேரடியாகப் பேச உங்கள் சொந்த Anthropic API விசையைப் பயன்படுத்தவும். Anthropic-இல் embedding API இல்லை, எனவே புத்தக அட்டவணைப்படுத்தலுக்கு Ollama அல்லது OpenAI-இணக்க வழங்குநர் தேவை.",
+  "OpenAI Configuration": "OpenAI உள்ளமைவு",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "உங்கள் சொந்த OpenAI API விசையைப் பயன்படுத்தவும். Anthropic போலன்றி OpenAI embedding-ஐயும் வழங்குகிறது, எனவே இந்த வழங்குநரில் புத்தக அட்டவணைப்படுத்தல் வேலை செய்யும்.",
+  "Explain": "விளக்கு",
+  "Summarize": "சுருக்கு",
+  "Background": "பின்னணி",
+  "Vocabulary": "சொற்களஞ்சியம்"
 }

@@ -9,6 +9,7 @@ import { BsPencilSquare } from 'react-icons/bs';
 import { BsTranslate } from 'react-icons/bs';
 import { FaHeadphones } from 'react-icons/fa6';
 import { IoIosBuild } from 'react-icons/io';
+import { PiRobot } from 'react-icons/pi';
 import { AnnotationToolType } from '@/types/annotator';
 import { stubTranslation as _ } from '@/utils/misc';
 
@@ -96,6 +97,13 @@ export const annotationToolButtons = createAnnotationToolButtons([
     label: _('Proofread'),
     tooltip: _('Proofread text after selection'),
     Icon: IoIosBuild,
+  },
+  {
+    type: 'ask-ai',
+    label: _('Ask AI'),
+    tooltip: _('Ask AI about text after selection'),
+    Icon: PiRobot,
+    quickAction: true,
   },
   {
     type: 'share',

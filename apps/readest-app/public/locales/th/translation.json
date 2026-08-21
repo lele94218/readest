@@ -2133,5 +2133,22 @@
   "Playback interrupted, tap play to retry": "การเล่นถูกขัดจังหวะ แตะเล่นเพื่อลองใหม่",
   "Unable to connect to {{server}}": "ไม่สามารถเชื่อมต่อกับ {{server}}",
   "Audiobookshelf server not found": "ไม่พบเซิร์ฟเวอร์ Audiobookshelf",
-  "Episode not found": "ไม่พบตอน"
+  "Episode not found": "ไม่พบตอน",
+  "Ask AI": "ถาม AI",
+  "Ask AI about text after selection": "ถาม AI เกี่ยวกับข้อความที่เลือก",
+  "this book": "หนังสือเล่มนี้",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "เปิดผู้ช่วย AI ที่ การตั้งค่า → ผู้ช่วย AI เพื่อถามเกี่ยวกับข้อความที่เลือก",
+  "Pick a question above, or type your own.": "เลือกคำถามด้านบน หรือพิมพ์คำถามของคุณเอง",
+  "Ask about this passage...": "ถามเกี่ยวกับข้อความตอนนี้...",
+  "Continue in Notebook": "ทำต่อในสมุดบันทึก",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "การกำหนดค่า Anthropic",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "ใช้คีย์ API Anthropic ของคุณเองเพื่อคุยกับ Claude โดยตรง โปรดทราบว่า Anthropic ไม่มี API สำหรับ embedding ดังนั้นการทำดัชนีหนังสือจึงต้องใช้ Ollama หรือผู้ให้บริการที่รองรับ OpenAI",
+  "OpenAI Configuration": "การกำหนดค่า OpenAI",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "ใช้คีย์ API OpenAI ของคุณเอง ต่างจาก Anthropic ตรงที่ OpenAI ให้บริการ embedding ด้วย การทำดัชนีหนังสือจึงใช้งานได้กับผู้ให้บริการนี้",
+  "Explain": "อธิบาย",
+  "Summarize": "สรุป",
+  "Background": "ภูมิหลัง",
+  "Vocabulary": "คำศัพท์"
 }

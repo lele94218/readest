@@ -2133,5 +2133,22 @@
   "Playback interrupted, tap play to retry": "播放已中斷，點一下播放即可重試",
   "Unable to connect to {{server}}": "無法連線至 {{server}}",
   "Audiobookshelf server not found": "找不到 Audiobookshelf 伺服器",
-  "Episode not found": "找不到該集"
+  "Episode not found": "找不到該集",
+  "Ask AI": "問 AI",
+  "Ask AI about text after selection": "就選取的文字向 AI 提問",
+  "this book": "本書",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "在 設定 → AI 助手 中開啟 AI 助手，即可就選取內容提問。",
+  "Pick a question above, or type your own.": "選一個上面的問題，或自行輸入。",
+  "Ask about this passage...": "就這段內容提問...",
+  "Continue in Notebook": "在筆記本中繼續",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Anthropic 設定",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "使用你自己的 Anthropic API 金鑰直連 Claude。請注意 Anthropic 沒有向量嵌入介面，因此書籍索引需改用 Ollama 或相容 OpenAI 的服務商。",
+  "OpenAI Configuration": "OpenAI 設定",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "使用你自己的 OpenAI API 金鑰。與 Anthropic 不同，OpenAI 同時提供向量嵌入，因此可在此服務商上建立書籍索引。",
+  "Explain": "解釋",
+  "Summarize": "摘要",
+  "Background": "背景",
+  "Vocabulary": "生字"
 }

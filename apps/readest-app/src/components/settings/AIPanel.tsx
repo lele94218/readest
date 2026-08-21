@@ -7,6 +7,16 @@ import { useSettingsStore } from '@/store/settingsStore';
 import { useEnv } from '@/context/EnvContext';
 import { getAIProvider } from '@/services/ai/providers';
 import {
+  ANTHROPIC_MODELS,
+  DEFAULT_ANTHROPIC_MODEL,
+} from '@/services/ai/providers/AnthropicProvider';
+import {
+  OPENAI_MODELS,
+  OPENAI_EMBEDDING_MODELS,
+  DEFAULT_OPENAI_MODEL,
+  DEFAULT_OPENAI_EMBEDDING_MODEL,
+} from '@/services/ai/providers/OpenAIProvider';
+import {
   fetchOpenRouterModels,
   type OpenRouterModelInfo,
 } from '@/services/ai/providers/OpenRouterProvider';
@@ -99,6 +109,19 @@ const AIPanel: React.FC = () => {
   const [openrouterModels, setOpenrouterModels] = useState<OpenRouterModelInfo[]>([]);
   const [openrouterFetchingModels, setOpenrouterFetchingModels] = useState(false);
   const [openrouterModelsError, setOpenrouterModelsError] = useState('');
+
+  // ---- Anthropic state ----
+  const [anthropicKey, setAnthropicKey] = useState(aiSettings.anthropicApiKey ?? '');
+  const [anthropicModel, setAnthropicModel] = useState(
+    aiSettings.anthropicModel ?? DEFAULT_ANTHROPIC_MODEL,
+  );
+
+  // ---- OpenAI state ----
+  const [openaiKey, setOpenaiKey] = useState(aiSettings.openaiApiKey ?? '');
+  const [openaiModel, setOpenaiModel] = useState(aiSettings.openaiModel ?? DEFAULT_OPENAI_MODEL);
+  const [openaiEmbeddingModel, setOpenaiEmbeddingModel] = useState(
+    aiSettings.openaiEmbeddingModel ?? DEFAULT_OPENAI_EMBEDDING_MODEL,
+  );
 
   const savedCustomModel = aiSettings.aiGatewayCustomModel ?? '';
   const savedModel = aiSettings.aiGatewayModel ?? DEFAULT_AI_SETTINGS.aiGatewayModel ?? '';
@@ -288,6 +311,48 @@ const AIPanel: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openrouterEmbeddingModel]);
 
+  // ---- Anthropic save effects ----
+  useEffect(() => {
+    if (!isMounted.current) return;
+    if (anthropicKey !== (aiSettings.anthropicApiKey ?? '')) {
+      saveAiSetting('anthropicApiKey', anthropicKey);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [anthropicKey]);
+
+  useEffect(() => {
+    if (!isMounted.current) return;
+    if (anthropicModel !== (aiSettings.anthropicModel ?? '')) {
+      saveAiSetting('anthropicModel', anthropicModel);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [anthropicModel]);
+
+  // ---- OpenAI save effects ----
+  useEffect(() => {
+    if (!isMounted.current) return;
+    if (openaiKey !== (aiSettings.openaiApiKey ?? '')) {
+      saveAiSetting('openaiApiKey', openaiKey);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [openaiKey]);
+
+  useEffect(() => {
+    if (!isMounted.current) return;
+    if (openaiModel !== (aiSettings.openaiModel ?? '')) {
+      saveAiSetting('openaiModel', openaiModel);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [openaiModel]);
+
+  useEffect(() => {
+    if (!isMounted.current) return;
+    if (openaiEmbeddingModel !== (aiSettings.openaiEmbeddingModel ?? '')) {
+      saveAiSetting('openaiEmbeddingModel', openaiEmbeddingModel);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [openaiEmbeddingModel]);
+
   // Get the effective model ID to use (either selected or custom)
   const getEffectiveModelId = useCallback(() => {
     if (selectedModel === CUSTOM_MODEL_VALUE && customModelStatus === 'valid') {
@@ -382,6 +447,11 @@ const AIPanel: React.FC = () => {
         openrouterBaseUrl: openrouterUrl,
         openrouterModel,
         openrouterEmbeddingModel,
+        anthropicApiKey: anthropicKey,
+        anthropicModel,
+        openaiApiKey: openaiKey,
+        openaiModel,
+        openaiEmbeddingModel,
       };
       const aiProvider = getAIProvider(testSettings);
       const isHealthy = await aiProvider.healthCheck();
@@ -431,6 +501,26 @@ const AIPanel: React.FC = () => {
             className='radio'
             checked={provider === 'ai-gateway'}
             onChange={() => setProvider('ai-gateway')}
+            disabled={!enabled}
+          />
+        </SettingsRow>
+        <SettingsRow label={_('Anthropic (Claude)')} asLabel>
+          <input
+            type='radio'
+            name='ai-provider'
+            className='radio'
+            checked={provider === 'anthropic'}
+            onChange={() => setProvider('anthropic')}
+            disabled={!enabled}
+          />
+        </SettingsRow>
+        <SettingsRow label={_('OpenAI')} asLabel>
+          <input
+            type='radio'
+            name='ai-provider'
+            className='radio'
+            checked={provider === 'openai'}
+            onChange={() => setProvider('openai')}
             disabled={!enabled}
           />
         </SettingsRow>
@@ -601,6 +691,120 @@ const AIPanel: React.FC = () => {
               )}
             </div>
           )}
+        </BoxedList>
+      )}
+
+      {provider === 'anthropic' && (
+        <BoxedList
+          title={_('Anthropic Configuration')}
+          description={_(
+            'Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.',
+          )}
+          className={disabledSection}
+        >
+          <div className='flex flex-col gap-2 pe-4 py-3'>
+            <div className='flex w-full items-center justify-between'>
+              <SettingLabel>{_('API Key')}</SettingLabel>
+              <a
+                href='https://console.anthropic.com/settings/keys'
+                target='_blank'
+                rel='noopener noreferrer'
+                className={clsx('link text-xs', !enabled && 'pointer-events-none')}
+              >
+                {_('Get Key')}
+              </a>
+            </div>
+            <input
+              type='password'
+              className='input input-bordered input-sm w-full'
+              value={anthropicKey}
+              onChange={(e) => setAnthropicKey(e.target.value)}
+              placeholder='sk-ant-...'
+              disabled={!enabled}
+              autoComplete='off'
+            />
+          </div>
+
+          <div className='flex flex-col gap-2 pe-4 py-3'>
+            <SettingLabel>{_('Model')}</SettingLabel>
+            <select
+              className='select select-bordered select-sm w-full'
+              value={anthropicModel}
+              onChange={(e) => setAnthropicModel(e.target.value)}
+              disabled={!enabled}
+            >
+              {ANTHROPIC_MODELS.map(({ id, label }) => (
+                <option key={id} value={id}>
+                  {label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </BoxedList>
+      )}
+
+      {provider === 'openai' && (
+        <BoxedList
+          title={_('OpenAI Configuration')}
+          description={_(
+            'Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.',
+          )}
+          className={disabledSection}
+        >
+          <div className='flex flex-col gap-2 pe-4 py-3'>
+            <div className='flex w-full items-center justify-between'>
+              <SettingLabel>{_('API Key')}</SettingLabel>
+              <a
+                href='https://platform.openai.com/api-keys'
+                target='_blank'
+                rel='noopener noreferrer'
+                className={clsx('link text-xs', !enabled && 'pointer-events-none')}
+              >
+                {_('Get Key')}
+              </a>
+            </div>
+            <input
+              type='password'
+              className='input input-bordered input-sm w-full'
+              value={openaiKey}
+              onChange={(e) => setOpenaiKey(e.target.value)}
+              placeholder='sk-...'
+              disabled={!enabled}
+              autoComplete='off'
+            />
+          </div>
+
+          <div className='flex flex-col gap-2 pe-4 py-3'>
+            <SettingLabel>{_('Model')}</SettingLabel>
+            <select
+              className='select select-bordered select-sm w-full'
+              value={openaiModel}
+              onChange={(e) => setOpenaiModel(e.target.value)}
+              disabled={!enabled}
+            >
+              {OPENAI_MODELS.map(({ id, label }) => (
+                <option key={id} value={id}>
+                  {label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className='flex flex-col gap-2 pe-4 py-3'>
+            <SettingLabel>{_('Embedding Model')}</SettingLabel>
+            <select
+              className='select select-bordered select-sm w-full'
+              value={openaiEmbeddingModel}
+              onChange={(e) => setOpenaiEmbeddingModel(e.target.value)}
+              disabled={!enabled}
+            >
+              {OPENAI_EMBEDDING_MODELS.map(({ id, label }) => (
+                <option key={id} value={id}>
+                  {label}
+                </option>
+              ))}
+            </select>
+          </div>
         </BoxedList>
       )}
 

@@ -2310,5 +2310,22 @@
   "Playback interrupted, tap play to retry": "Predvajanje je bilo prekinjeno, za ponovni poskus se dotaknite predvajanja",
   "Unable to connect to {{server}}": "Povezava s strežnikom {{server}} ni uspela",
   "Audiobookshelf server not found": "Strežnika Audiobookshelf ni bilo mogoče najti",
-  "Episode not found": "Epizode ni mogoče najti"
+  "Episode not found": "Epizode ni mogoče najti",
+  "Ask AI": "Vprašaj AI",
+  "Ask AI about text after selection": "Vprašaj AI o izbranem besedilu",
+  "this book": "ta knjiga",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Vklopite AI pomočnika v Nastavitve → AI pomočnik, da lahko sprašujete o izbiri.",
+  "Pick a question above, or type your own.": "Izberite vprašanje zgoraj ali vnesite svojega.",
+  "Ask about this passage...": "Vprašajte o tem odlomku...",
+  "Continue in Notebook": "Nadaljuj v beležnici",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Konfiguracija Anthropic",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Uporabite svoj ključ API Anthropic za neposreden pogovor s Claudom. Anthropic nima API-ja za vdelave, zato indeksiranje knjig potrebuje Ollama ali ponudnika, združljivega z OpenAI.",
+  "OpenAI Configuration": "Konfiguracija OpenAI",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "Uporabite svoj ključ API OpenAI. Za razliko od Anthropic OpenAI ponuja tudi vdelave, zato indeksiranje knjig deluje pri tem ponudniku.",
+  "Explain": "Razloži",
+  "Summarize": "Povzemi",
+  "Background": "Ozadje",
+  "Vocabulary": "Besedišče"
 }

@@ -2192,5 +2192,22 @@
   "Playback interrupted, tap play to retry": "Afspelen onderbroken, tik op afspelen om het opnieuw te proberen",
   "Unable to connect to {{server}}": "Kan geen verbinding maken met {{server}}",
   "Audiobookshelf server not found": "Audiobookshelf-server niet gevonden",
-  "Episode not found": "Aflevering niet gevonden"
+  "Episode not found": "Aflevering niet gevonden",
+  "Ask AI": "AI vragen",
+  "Ask AI about text after selection": "AI vragen over de geselecteerde tekst",
+  "this book": "dit boek",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Schakel de AI-assistent in via Instellingen → AI-assistent om vragen te stellen over een selectie.",
+  "Pick a question above, or type your own.": "Kies hierboven een vraag of typ je eigen vraag.",
+  "Ask about this passage...": "Stel een vraag over deze passage...",
+  "Continue in Notebook": "Verder in notitieblok",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Anthropic-configuratie",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Gebruik je eigen Anthropic API-sleutel om rechtstreeks met Claude te praten. Let op: Anthropic heeft geen embedding-API, dus boekindexering vereist Ollama of een OpenAI-compatibele provider.",
+  "OpenAI Configuration": "OpenAI-configuratie",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "Gebruik je eigen OpenAI API-sleutel. Anders dan Anthropic levert OpenAI ook embeddings, dus boekindexering werkt met deze provider.",
+  "Explain": "Uitleggen",
+  "Summarize": "Samenvatten",
+  "Background": "Achtergrond",
+  "Vocabulary": "Woordenschat"
 }

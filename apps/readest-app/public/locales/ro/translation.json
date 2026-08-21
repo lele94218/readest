@@ -2251,5 +2251,22 @@
   "Playback interrupted, tap play to retry": "Redare întreruptă, atinge redarea pentru a relua",
   "Unable to connect to {{server}}": "Conectarea la {{server}} nu a reușit",
   "Audiobookshelf server not found": "Serverul Audiobookshelf nu a fost găsit",
-  "Episode not found": "Episodul nu a fost găsit"
+  "Episode not found": "Episodul nu a fost găsit",
+  "Ask AI": "Întreabă AI",
+  "Ask AI about text after selection": "Întreabă AI despre textul selectat",
+  "this book": "această carte",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Activează asistentul AI din Setări → Asistent AI pentru a pune întrebări despre o selecție.",
+  "Pick a question above, or type your own.": "Alege o întrebare de mai sus sau scrie-o pe a ta.",
+  "Ask about this passage...": "Întreabă despre acest pasaj...",
+  "Continue in Notebook": "Continuă în carnețel",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Configurare Anthropic",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Folosește propria cheie API Anthropic pentru a vorbi direct cu Claude. Reține că Anthropic nu are un API de embedding, așa că indexarea cărților necesită Ollama sau un furnizor compatibil OpenAI.",
+  "OpenAI Configuration": "Configurare OpenAI",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "Folosește propria cheie API OpenAI. Spre deosebire de Anthropic, OpenAI oferă și embedding-uri, așa că indexarea cărților funcționează cu acest furnizor.",
+  "Explain": "Explică",
+  "Summarize": "Rezumă",
+  "Background": "Context",
+  "Vocabulary": "Vocabular"
 }

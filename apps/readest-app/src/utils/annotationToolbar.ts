@@ -21,6 +21,7 @@ export const ALL_ANNOTATION_TOOL_TYPES: AnnotationToolType[] = [
   'translate',
   'tts',
   'proofread',
+  'ask-ai',
   'share',
 ];
 
@@ -37,6 +38,7 @@ export const DEFAULT_ANNOTATION_TOOLBAR_ITEMS: AnnotationToolType[] = [
   'translate',
   'tts',
   'proofread',
+  'ask-ai',
 ];
 
 // Drop unknown/duplicate entries; fall back to the default when unset (a

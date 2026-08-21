@@ -2192,5 +2192,22 @@
   "Playback interrupted, tap play to retry": "Ijro toʻxtadi, qayta urinish uchun ijro tugmasini bosing",
   "Unable to connect to {{server}}": "{{server}} bilan ulanib boʻlmadi",
   "Audiobookshelf server not found": "Audiobookshelf serveri topilmadi",
-  "Episode not found": "Epizod topilmadi"
+  "Episode not found": "Epizod topilmadi",
+  "Ask AI": "AI dan so‘rash",
+  "Ask AI about text after selection": "Tanlangan matn haqida AI dan so‘rash",
+  "this book": "bu kitob",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Tanlangan matn haqida so‘rash uchun Sozlamalar → AI yordamchi bo‘limida AI yordamchini yoqing.",
+  "Pick a question above, or type your own.": "Yuqoridagi savolni tanlang yoki o‘zingiznikini yozing.",
+  "Ask about this passage...": "Ushbu parcha haqida so‘rang...",
+  "Continue in Notebook": "Daftarda davom ettirish",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Anthropic konfiguratsiyasi",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Claude bilan bevosita suhbatlashish uchun o‘zingizning Anthropic API kalitingizdan foydalaning. E’tibor bering, Anthropic’da embedding API yo‘q, shuning uchun kitob indekslash uchun Ollama yoki OpenAI bilan mos ta’minotchi kerak.",
+  "OpenAI Configuration": "OpenAI konfiguratsiyasi",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "O‘zingizning OpenAI API kalitingizdan foydalaning. Anthropic’dan farqli o‘laroq, OpenAI embedding ham beradi, shuning uchun bu ta’minotchida kitob indekslash ishlaydi.",
+  "Explain": "Tushuntirish",
+  "Summarize": "Xulosa qilish",
+  "Background": "Fon",
+  "Vocabulary": "Lug‘at"
 }

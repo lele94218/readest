@@ -2192,5 +2192,22 @@
   "Playback interrupted, tap play to retry": "Uppspelningen avbröts, tryck på spela upp för att försöka igen",
   "Unable to connect to {{server}}": "Det går inte att ansluta till {{server}}",
   "Audiobookshelf server not found": "Audiobookshelf-servern hittades inte",
-  "Episode not found": "Avsnittet hittades inte"
+  "Episode not found": "Avsnittet hittades inte",
+  "Ask AI": "Fråga AI",
+  "Ask AI about text after selection": "Fråga AI om den markerade texten",
+  "this book": "den här boken",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Slå på AI-assistenten under Inställningar → AI-assistent för att ställa frågor om en markering.",
+  "Pick a question above, or type your own.": "Välj en fråga ovan eller skriv en egen.",
+  "Ask about this passage...": "Fråga om det här avsnittet...",
+  "Continue in Notebook": "Fortsätt i anteckningsboken",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Anthropic-konfiguration",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Använd din egen Anthropic API-nyckel för att prata direkt med Claude. Observera att Anthropic saknar ett embedding-API, så bokindexering kräver Ollama eller en OpenAI-kompatibel leverantör.",
+  "OpenAI Configuration": "OpenAI-konfiguration",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "Använd din egen OpenAI API-nyckel. Till skillnad från Anthropic tillhandahåller OpenAI även embeddings, så bokindexering fungerar med den här leverantören.",
+  "Explain": "Förklara",
+  "Summarize": "Sammanfatta",
+  "Background": "Bakgrund",
+  "Vocabulary": "Ordförråd"
 }

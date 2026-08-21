@@ -2310,5 +2310,22 @@
   "Playback interrupted, tap play to retry": "Відтворення перервано, торкніться відтворення, щоб повторити спробу",
   "Unable to connect to {{server}}": "Не вдалося під'єднатися до {{server}}",
   "Audiobookshelf server not found": "Сервер Audiobookshelf не знайдено",
-  "Episode not found": "Епізод не знайдено"
+  "Episode not found": "Епізод не знайдено",
+  "Ask AI": "Запитати ШІ",
+  "Ask AI about text after selection": "Запитати ШІ про виділений текст",
+  "this book": "ця книга",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Увімкніть ШІ-асистента в Налаштування → ШІ-асистент, щоб ставити запитання про виділений текст.",
+  "Pick a question above, or type your own.": "Оберіть запитання вище або введіть власне.",
+  "Ask about this passage...": "Запитайте про цей уривок...",
+  "Continue in Notebook": "Продовжити в нотатнику",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Налаштування Anthropic",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Використовуйте власний ключ API Anthropic для прямого спілкування з Claude. Зверніть увагу: Anthropic не має API вбудовувань, тому для індексації книг потрібен Ollama або сумісний з OpenAI постачальник.",
+  "OpenAI Configuration": "Налаштування OpenAI",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "Використовуйте власний ключ API OpenAI. На відміну від Anthropic, OpenAI також надає вбудовування, тому індексація книг працює з цим постачальником.",
+  "Explain": "Пояснити",
+  "Summarize": "Підсумувати",
+  "Background": "Контекст",
+  "Vocabulary": "Словник"
 }

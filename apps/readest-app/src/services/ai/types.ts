@@ -1,6 +1,6 @@
 import type { LanguageModel, EmbeddingModel } from 'ai';
 
-export type AIProviderName = 'ollama' | 'ai-gateway' | 'openrouter';
+export type AIProviderName = 'ollama' | 'ai-gateway' | 'openrouter' | 'anthropic' | 'openai';
 
 export interface AIProvider {
   id: AIProviderName;
@@ -33,6 +33,21 @@ export interface AISettings {
   openrouterBaseUrl?: string;
   openrouterModel?: string;
   openrouterEmbeddingModel?: string;
+
+  // Anthropic's Messages API, reached directly rather than through an
+  // OpenAI-compatible shim. No embedding model: Anthropic has no such API,
+  // so book indexing must run on another provider.
+  anthropicApiKey?: string;
+  anthropicBaseUrl?: string;
+  anthropicModel?: string;
+
+  // OpenAI's own API, reached with the native client rather than the
+  // OpenAI-compatible shim. Supplies embeddings, so RAG can run on it.
+  openaiApiKey?: string;
+  openaiBaseUrl?: string;
+  openaiModel?: string;
+  openaiEmbeddingModel?: string;
+  openaiOrganization?: string;
 
   spoilerProtection: boolean;
   maxContextChunks: number;

@@ -2133,5 +2133,22 @@
   "Playback interrupted, tap play to retry": "Phát bị gián đoạn, nhấn phát để thử lại",
   "Unable to connect to {{server}}": "Không thể kết nối với {{server}}",
   "Audiobookshelf server not found": "Không tìm thấy máy chủ Audiobookshelf",
-  "Episode not found": "Không tìm thấy tập"
+  "Episode not found": "Không tìm thấy tập",
+  "Ask AI": "Hỏi AI",
+  "Ask AI about text after selection": "Hỏi AI về văn bản đã chọn",
+  "this book": "cuốn sách này",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Bật trợ lý AI trong Cài đặt → Trợ lý AI để hỏi về phần văn bản đã chọn.",
+  "Pick a question above, or type your own.": "Chọn một câu hỏi ở trên, hoặc tự nhập câu hỏi của bạn.",
+  "Ask about this passage...": "Hỏi về đoạn này...",
+  "Continue in Notebook": "Tiếp tục trong Sổ ghi chép",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Cấu hình Anthropic",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Dùng khóa API Anthropic của riêng bạn để trò chuyện trực tiếp với Claude. Lưu ý rằng Anthropic không có API embedding, nên việc lập chỉ mục sách cần Ollama hoặc một nhà cung cấp tương thích OpenAI.",
+  "OpenAI Configuration": "Cấu hình OpenAI",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "Dùng khóa API OpenAI của riêng bạn. Khác với Anthropic, OpenAI cũng cung cấp embedding, nên việc lập chỉ mục sách hoạt động với nhà cung cấp này.",
+  "Explain": "Giải thích",
+  "Summarize": "Tóm tắt",
+  "Background": "Bối cảnh",
+  "Vocabulary": "Từ vựng"
 }

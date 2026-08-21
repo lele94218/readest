@@ -24,6 +24,7 @@ export class ReaderPage extends BasePage {
   readonly dictionaryPopup: Locator;
   readonly translatorPopup: Locator;
   readonly proofreadPopup: Locator;
+  readonly askAIPopup: Locator;
   readonly noteEditor: Locator;
   readonly annotationItems: Locator;
   readonly pageJumpInput: Locator;
@@ -47,6 +48,7 @@ export class ReaderPage extends BasePage {
     this.dictionaryPopup = page.locator('.popup-container:has([data-testid="dict-title"])');
     this.translatorPopup = page.locator('.popup-container:has(h1:text-is("Original Text"))');
     this.proofreadPopup = page.locator('.popup-container:has-text("Selected text:")');
+    this.askAIPopup = page.locator('.popup-container:has(h1:text-is("Ask AI"))');
     this.noteEditor = page.locator('.note-editor-container');
     this.annotationItems = page.locator('li.booknote-item[role="button"]');
   }

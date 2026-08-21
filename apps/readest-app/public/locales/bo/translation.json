@@ -2133,5 +2133,22 @@
   "Playback interrupted, tap play to retry": "གཏོང་བ་བར་ཆད་བྱུང་། ཡང་བསྐྱར་ཚོད་ལྟ་ཆེད་གཏོང་བ་ལ་མནན་རོགས།",
   "Unable to connect to {{server}}": "{{server}} ལ་མཐུད་ཐུབ་མ་སོང་།",
   "Audiobookshelf server not found": "Audiobookshelf ཞབས་ཞུ་བ་མ་རྙེད།",
-  "Episode not found": "འདོན་ཐེངས་མ་རྙེད།"
+  "Episode not found": "འདོན་ཐེངས་མ་རྙེད།",
+  "Ask AI": "AI ལ་དྲི་བ།",
+  "Ask AI about text after selection": "བདམས་པའི་ཡི་གེའི་སྐོར་ AI ལ་དྲི་བ།",
+  "this book": "དེབ་འདི།",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "བདམས་པའི་ཡི་གེའི་སྐོར་དྲི་བ་འདྲི་བར་ སྒྲིག་སྟངས། → AI རོགས་པ། ནང་ AI རོགས་པ་ཁ་ཕྱེ་རོགས།",
+  "Pick a question above, or type your own.": "གོང་གི་དྲི་བ་ཞིག་འདེམས་རོགས། ཡང་ན་རང་གི་དྲི་བ་འབྲི་རོགས།",
+  "Ask about this passage...": "དུམ་བུ་འདིའི་སྐོར་དྲི་བ།...",
+  "Continue in Notebook": "ཟིན་དེབ་ནང་མུ་མཐུད།",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Anthropic སྒྲིག་བཀོད།",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Claude དང་ཐད་ཀར་འབྲེལ་བ་བྱེད་པར་རང་གི་ Anthropic API ལྡེ་མིག་བེད་སྤྱོད་གནང་། Anthropic ལ་ embedding API མེད་པས། དེབ་ཀྱི་དཀར་ཆག་བཟོ་བར་ Ollama ཡང་ན་ OpenAI དང་མཐུན་པའི་མཁོ་སྤྲོད་པ་ཞིག་དགོས།",
+  "OpenAI Configuration": "OpenAI སྒྲིག་བཀོད།",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "རང་གི་ OpenAI API ལྡེ་མིག་བེད་སྤྱོད་གནང་། Anthropic དང་མི་འདྲ་བར་ OpenAI ཡིས་ embedding ཡང་མཁོ་སྤྲོད་བྱེད་པས། མཁོ་སྤྲོད་པ་འདིའི་ཐོག་དེབ་ཀྱི་དཀར་ཆག་བཟོ་ཐུབ།",
+  "Explain": "འགྲེལ་བཤད།",
+  "Summarize": "བསྡུས་དོན།",
+  "Background": "རྒྱབ་ལྗོངས།",
+  "Vocabulary": "ཐ་སྙད།"
 }

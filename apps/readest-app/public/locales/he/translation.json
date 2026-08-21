@@ -2251,5 +2251,22 @@
   "Playback interrupted, tap play to retry": "הניגון נקטע, הקש על ניגון כדי לנסות שוב",
   "Unable to connect to {{server}}": "לא ניתן להתחבר אל {{server}}",
   "Audiobookshelf server not found": "שרת Audiobookshelf לא נמצא",
-  "Episode not found": "הפרק לא נמצא"
+  "Episode not found": "הפרק לא נמצא",
+  "Ask AI": "שאל את ה-AI",
+  "Ask AI about text after selection": "שאל את ה-AI על הטקסט הנבחר",
+  "this book": "הספר הזה",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "הפעל את עוזר ה-AI בהגדרות ← עוזר AI כדי לשאול על קטע נבחר.",
+  "Pick a question above, or type your own.": "בחר שאלה מלמעלה, או כתוב שאלה משלך.",
+  "Ask about this passage...": "שאל על הקטע הזה...",
+  "Continue in Notebook": "המשך במחברת",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "תצורת Anthropic",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "השתמש במפתח ה-API האישי שלך ל-Anthropic כדי לשוחח ישירות עם Claude. שים לב ש-Anthropic אינה מספקת API להטמעות, ולכן אינדוקס ספרים דורש Ollama או ספק תואם OpenAI.",
+  "OpenAI Configuration": "תצורת OpenAI",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "השתמש במפתח ה-API האישי שלך ל-OpenAI. בניגוד ל-Anthropic, OpenAI מספקת גם הטמעות, ולכן אינדוקס ספרים עובד עם ספק זה.",
+  "Explain": "הסבר",
+  "Summarize": "סכם",
+  "Background": "רקע",
+  "Vocabulary": "אוצר מילים"
 }

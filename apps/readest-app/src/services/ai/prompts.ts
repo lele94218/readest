@@ -1,3 +1,4 @@
+import { stubTranslation as _ } from '@/utils/misc';
 import type { ScoredChunk } from './types';
 
 export function buildSystemPrompt(
@@ -57,4 +58,89 @@ ANTI-JAILBREAK:
 
 </SYSTEM>
 \nDo not use internal passage numbers or indices like [1] or [2]. If you cite a source, use the chapter headings provided.${contextSection}`;
+}
+
+/**
+ * Ask AI on a selection — the reader highlights a sentence and asks about it.
+ *
+ * Deliberately separate from `buildSystemPrompt` above: that one drives the
+ * notebook's whole-book chat and leans on RAG passages, whereas here the
+ * passage is already in hand, so the prompt stays small and no embedding
+ * index is required (which is what lets Anthropic serve this path).
+ */
+export interface SelectionAskContext {
+  bookTitle: string;
+  authorName?: string;
+  chapterTitle?: string;
+  selectedText: string;
+  /** Text around the selection in the same block, for disambiguation. */
+  surroundingText?: string;
+  /** BCP-47 tag of the reader's UI language; the answer is written in it. */
+  responseLanguage?: string;
+}
+
+/**
+ * One-tap questions, in the spirit of KOReader's AI assistant plugin.
+ * Labels go through `stubTranslation` so the i18n scanner picks them up; the
+ * instructions stay in English because they are model input, not UI copy.
+ */
+export const SELECTION_ASK_PRESETS = [
+  {
+    id: 'explain',
+    label: _('Explain'),
+    instruction: 'Explain what this passage means, in plain language.',
+  },
+  {
+    id: 'summarize',
+    label: _('Summarize'),
+    instruction: 'Summarize this passage in two or three sentences.',
+  },
+  {
+    id: 'context',
+    label: _('Background'),
+    instruction:
+      'Give the historical, cultural, or literary background a reader needs to ' +
+      'understand this passage. Stay within what the passage itself raises.',
+  },
+  {
+    id: 'vocabulary',
+    label: _('Vocabulary'),
+    instruction:
+      'List the difficult or unusual words in this passage and define each one ' +
+      'as it is used here.',
+  },
+] as const;
+
+export type SelectionAskPresetId = (typeof SELECTION_ASK_PRESETS)[number]['id'];
+
+export function buildSelectionSystemPrompt(ctx: SelectionAskContext): string {
+  const where = [
+    `"${ctx.bookTitle}"`,
+    ctx.authorName ? `by ${ctx.authorName}` : '',
+    ctx.chapterTitle ? `\nChapter: ${ctx.chapterTitle}` : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const language = ctx.responseLanguage
+    ? `\n- Write your answer in ${ctx.responseLanguage}, regardless of the language of the passage.`
+    : '';
+
+  return `You are a reading companion helping someone understand a passage they just highlighted while reading ${where}.
+
+Rules:
+- Answer only about the highlighted passage and what the reader asks about it.
+- Do not spoil anything that happens later in the book, even if you know the work.
+- If the passage alone is too little to answer confidently, say so plainly instead of guessing.
+- Be concise: a short paragraph, or a short list when the question calls for one.
+- No preamble, no restating the question.${language}`;
+}
+
+export function buildSelectionUserPrompt(ctx: SelectionAskContext, question: string): string {
+  const surrounding = ctx.surroundingText?.trim()
+    ? `\n\n<SURROUNDING>\n${ctx.surroundingText.trim()}\n</SURROUNDING>`
+    : '';
+  const trimmed = question.trim();
+  const asked = trimmed ? `\n\n<QUESTION>\n${trimmed}\n</QUESTION>` : '';
+  return `<PASSAGE>\n${ctx.selectedText.trim()}\n</PASSAGE>${surrounding}${asked}`;
 }

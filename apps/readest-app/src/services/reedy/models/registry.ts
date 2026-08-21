@@ -120,6 +120,10 @@ function chatModelIdFor(settings: AISettings): string {
       );
     case 'openrouter':
       return settings.openrouterModel || 'openai/gpt-4o-mini';
+    case 'anthropic':
+      return settings.anthropicModel || 'claude-opus-5';
+    case 'openai':
+      return settings.openaiModel || 'gpt-5.1';
   }
 }
 
@@ -173,5 +177,11 @@ function embeddingModelIdFor(settings: AISettings): string {
       return settings.aiGatewayEmbeddingModel || 'openai/text-embedding-3-small';
     case 'openrouter':
       return settings.openrouterEmbeddingModel || 'openai/text-embedding-3-small';
+    case 'openai':
+      return settings.openaiEmbeddingModel || 'text-embedding-3-small';
+    // Anthropic ships no embedding endpoint; AnthropicProvider.getEmbeddingModel()
+    // throws before this id is ever needed, so name the gap rather than invent one.
+    case 'anthropic':
+      return 'none';
   }
 }

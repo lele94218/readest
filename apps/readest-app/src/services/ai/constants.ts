@@ -34,6 +34,13 @@ export const DEFAULT_AI_SETTINGS: AISettings = {
   openrouterModel: '',
   openrouterEmbeddingModel: '',
 
+  anthropicBaseUrl: 'https://api.anthropic.com/v1',
+  anthropicModel: 'claude-opus-5',
+
+  openaiBaseUrl: 'https://api.openai.com/v1',
+  openaiModel: 'gpt-5.1',
+  openaiEmbeddingModel: 'text-embedding-3-small',
+
   spoilerProtection: true,
   maxContextChunks: 10,
   indexingMode: 'on-demand',

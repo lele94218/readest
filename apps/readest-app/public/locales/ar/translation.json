@@ -2428,5 +2428,22 @@
   "Playback interrupted, tap play to retry": "انقطع التشغيل، اضغط على تشغيل لإعادة المحاولة",
   "Unable to connect to {{server}}": "تعذّر الاتصال بـ{{server}}",
   "Audiobookshelf server not found": "لم يتم العثور على خادم Audiobookshelf",
-  "Episode not found": "لم يتم العثور على الحلقة"
+  "Episode not found": "لم يتم العثور على الحلقة",
+  "Ask AI": "اسأل الذكاء الاصطناعي",
+  "Ask AI about text after selection": "اسأل الذكاء الاصطناعي عن النص المحدد",
+  "this book": "هذا الكتاب",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "فعّل مساعد الذكاء الاصطناعي من الإعدادات ← مساعد الذكاء الاصطناعي لطرح الأسئلة حول النص المحدد.",
+  "Pick a question above, or type your own.": "اختر سؤالاً من الأعلى، أو اكتب سؤالك الخاص.",
+  "Ask about this passage...": "اسأل عن هذا المقطع...",
+  "Continue in Notebook": "المتابعة في المفكرة",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "إعدادات Anthropic",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "استخدم مفتاح API الخاص بك من Anthropic للتحدث مباشرة مع Claude. لاحظ أن Anthropic لا توفر واجهة برمجة للتضمينات، لذا تحتاج فهرسة الكتب إلى Ollama أو مزوّد متوافق مع OpenAI.",
+  "OpenAI Configuration": "إعدادات OpenAI",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "استخدم مفتاح API الخاص بك من OpenAI. على عكس Anthropic، توفر OpenAI التضمينات أيضاً، لذا تعمل فهرسة الكتب مع هذا المزوّد.",
+  "Explain": "اشرح",
+  "Summarize": "لخّص",
+  "Background": "الخلفية",
+  "Vocabulary": "المفردات"
 }

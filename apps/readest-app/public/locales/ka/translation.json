@@ -2192,5 +2192,22 @@
   "Playback interrupted, tap play to retry": "დაკვრა შეწყდა, გასამეორებლად შეეხეთ დაკვრას",
   "Unable to connect to {{server}}": "{{server}}-თან დაკავშირება ვერ მოხერხდა",
   "Audiobookshelf server not found": "Audiobookshelf სერვერი ვერ მოიძებნა",
-  "Episode not found": "ეპიზოდი ვერ მოიძებნა"
+  "Episode not found": "ეპიზოდი ვერ მოიძებნა",
+  "Ask AI": "ჰკითხე AI-ს",
+  "Ask AI about text after selection": "ჰკითხე AI-ს მონიშნულ ტექსტზე",
+  "this book": "ეს წიგნი",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "მონიშნულზე კითხვების დასასმელად ჩართეთ AI ასისტენტი პარამეტრები → AI ასისტენტი განყოფილებაში.",
+  "Pick a question above, or type your own.": "აირჩიეთ კითხვა ზემოთ, ან აკრიფეთ თქვენი.",
+  "Ask about this passage...": "იკითხეთ ამ ნაწყვეტზე...",
+  "Continue in Notebook": "გაგრძელება რვეულში",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Anthropic-ის კონფიგურაცია",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "გამოიყენეთ საკუთარი Anthropic API გასაღები Claude-თან პირდაპირ სასაუბროდ. გაითვალისწინეთ, რომ Anthropic-ს არ აქვს ჩაშენებების API, ამიტომ წიგნების ინდექსირებას სჭირდება Ollama ან OpenAI-თან თავსებადი პროვაიდერი.",
+  "OpenAI Configuration": "OpenAI-ის კონფიგურაცია",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "გამოიყენეთ საკუთარი OpenAI API გასაღები. Anthropic-ისგან განსხვავებით, OpenAI ჩაშენებებსაც გვთავაზობს, ამიტომ წიგნების ინდექსირება მუშაობს ამ პროვაიდერზე.",
+  "Explain": "ახსნა",
+  "Summarize": "შეჯამება",
+  "Background": "ფონი",
+  "Vocabulary": "ლექსიკა"
 }

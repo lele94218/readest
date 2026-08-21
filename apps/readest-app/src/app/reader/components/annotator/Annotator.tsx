@@ -60,6 +60,7 @@ import { buildAnnotationUrl } from '@/utils/deeplink';
 import { DEFAULT_NOTE_EXPORT_CONFIG } from '@/services/constants';
 import { canShareText, shareSelectedText } from '@/utils/share';
 import { getToolbarToolTypes, supportsProofread } from '@/utils/annotationToolbar';
+import useOpenAIInNotebook from '../../hooks/useOpenAIInNotebook';
 import { AnnotationToolType } from '@/types/annotator';
 import { TransformContext } from '@/services/transformers/types';
 import { transformContent } from '@/services/transformService';
@@ -86,6 +87,7 @@ import DictionarySheet from './DictionarySheet';
 import TranslatorPopup from './TranslatorPopup';
 import useShortcuts from '@/hooks/useShortcuts';
 import ProofreadPopup from './ProofreadPopup';
+import AskAIPopup from './AskAIPopup';
 import { setProofreadRulesVisibility } from '@/app/reader/components/ProofreadRules';
 import ExportMarkdownDialog from './ExportMarkdownDialog';
 import ImportAnnotationsDialog from './ImportAnnotationsDialog';
@@ -147,6 +149,7 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
   // per page turn — the `useEffect(..., [progress])` below uses it to
   // re-apply local-page annotations after each relocate.
   const progress = useBookProgress(bookKey)!;
+  const { openAIInNotebook } = useOpenAIInNotebook();
   const bookData = getBookData(bookKey)!;
   const view = getView(bookKey);
   const viewSettings = getViewSettings(bookKey)!;
@@ -160,11 +163,13 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
   const [showDictionaryPopup, setShowDictionaryPopup] = useState(false);
   const [showDeepLPopup, setShowDeepLPopup] = useState(false);
   const [showProofreadPopup, setShowProofreadPopup] = useState(false);
+  const [showAskAIPopup, setShowAskAIPopup] = useState(false);
   const [trianglePosition, setTrianglePosition] = useState<Position>();
   const [annotPopupPosition, setAnnotPopupPosition] = useState<Position>();
   const [dictPopupPosition, setDictPopupPosition] = useState<Position>();
   const [translatorPopupPosition, setTranslatorPopupPosition] = useState<Position>();
   const [proofreadPopupPosition, setProofreadPopupPosition] = useState<Position>();
+  const [askAIPopupPosition, setAskAIPopupPosition] = useState<Position>();
   const [highlightOptionsVisible, setHighlightOptionsVisible] = useState(false);
   const [showAnnotationNotes, setShowAnnotationNotes] = useState(false);
   const [annotationNotes, setAnnotationNotes] = useState<BookNote[]>([]);
@@ -202,7 +207,7 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
   const pendingWordLensDictRef = useRef(false);
 
   const showingPopup =
-    showAnnotPopup || showDictionaryPopup || showDeepLPopup || showProofreadPopup;
+    showAnnotPopup || showDictionaryPopup || showDeepLPopup || showProofreadPopup || showAskAIPopup;
 
   const popupPadding = useResponsiveSize(10);
   const trianglePadding = popupPadding * 2 + 6;
@@ -217,6 +222,8 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
   const transPopupHeight = Math.min(265, maxHeight);
   const proofreadPopupWidth = Math.min(440, maxWidth);
   const proofreadPopupHeight = Math.min(200, maxHeight);
+  const askAIPopupWidth = Math.min(480, maxWidth);
+  const askAIPopupHeight = Math.min(280, maxHeight);
   const canShare = canShareText(appService);
   // The toolbar is now customizable, so size the selection popup to the number
   // of visible tools (responsive) up to a max — otherwise a 2-tool toolbar
@@ -273,11 +280,19 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
       proofreadPopupHeight,
       popupPadding,
     );
+    const askAIPopupPos = getPopupPosition(
+      triangPos,
+      rect,
+      askAIPopupWidth,
+      askAIPopupHeight,
+      popupPadding,
+    );
     if (triangPos.point.x == 0 || triangPos.point.y == 0) return;
     setAnnotPopupPosition(annotPopupPos);
     setDictPopupPosition(dictPopupPos);
     setTranslatorPopupPosition(transPopupPos);
     setProofreadPopupPosition(proofreadPopupPos);
+    setAskAIPopupPosition(askAIPopupPos);
     setTrianglePosition(triangPos);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selection, bookKey, viewSettings.vertical]);
@@ -321,6 +336,7 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
       setShowDictionaryPopup(false);
       setShowDeepLPopup(false);
       setShowProofreadPopup(false);
+      setShowAskAIPopup(false);
       setEditingAnnotation(null);
     }, 500),
     [],
@@ -1087,11 +1103,19 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
         proofreadPopupHeight,
         popupPadding,
       );
+      const askAIPopupPos = getPopupPosition(
+        triangPos,
+        rect,
+        askAIPopupWidth,
+        askAIPopupHeight,
+        popupPadding,
+      );
       if (triangPos.point.x == 0 || triangPos.point.y == 0) return;
       setAnnotPopupPosition(annotPopupPos);
       setDictPopupPosition(dictPopupPos);
       setTranslatorPopupPosition(transPopupPos);
       setProofreadPopupPosition(proofreadPopupPos);
+      setAskAIPopupPosition(askAIPopupPos);
       setTrianglePosition(triangPos);
 
       const { enableAnnotationQuickActions, annotationQuickAction } = viewSettings;
@@ -1200,6 +1224,7 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
     setShowDeepLPopup(false);
     setShowDictionaryPopup(false);
     setShowProofreadPopup(false);
+    setShowAskAIPopup(false);
   };
 
   const handleCopy = (dismissPopup = true) => {
@@ -1498,6 +1523,12 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
     if (!selection || !selection.text) return;
     setShowAnnotPopup(false);
     setShowDeepLPopup(true);
+  };
+
+  const handleAskAI = () => {
+    if (!selection || !selection.text) return;
+    setShowAnnotPopup(false);
+    setShowAskAIPopup(true);
   };
 
   const handleSpeakText = async (oneTime = false) => {
@@ -2025,6 +2056,8 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
         return { tooltipText: _(label), Icon, onClick: handleDictionary };
       case 'translate':
         return { tooltipText: _(label), Icon, onClick: handleTranslation };
+      case 'ask-ai':
+        return { tooltipText: _(label), Icon, onClick: handleAskAI };
       case 'tts':
         return {
           tooltipText: _(label),
@@ -2145,6 +2178,21 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
             onDismiss={handleDismissPopupAndSelection}
           />
         )}
+      {showAskAIPopup && trianglePosition && askAIPopupPosition && selection && (
+        <AskAIPopup
+          bookKey={bookKey}
+          selection={selection}
+          position={askAIPopupPosition}
+          trianglePosition={trianglePosition}
+          popupWidth={askAIPopupWidth}
+          popupHeight={askAIPopupHeight}
+          onDismiss={handleDismissPopupShowToolbar}
+          onOpenInNotebook={() => {
+            handleDismissPopupAndSelection();
+            openAIInNotebook({ bookHash: bookData.book?.hash });
+          }}
+        />
+      )}
       {showProofreadPopup && trianglePosition && proofreadPopupPosition && selection && (
         <ProofreadPopup
           bookKey={bookKey}

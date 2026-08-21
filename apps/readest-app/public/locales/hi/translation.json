@@ -2192,5 +2192,22 @@
   "Playback interrupted, tap play to retry": "प्लेबैक बाधित हुआ, फिर से प्रयास करने के लिए प्ले पर टैप करें",
   "Unable to connect to {{server}}": "{{server}} से कनेक्ट नहीं हो सका",
   "Audiobookshelf server not found": "Audiobookshelf सर्वर नहीं मिला",
-  "Episode not found": "एपिसोड नहीं मिला"
+  "Episode not found": "एपिसोड नहीं मिला",
+  "Ask AI": "AI से पूछें",
+  "Ask AI about text after selection": "चयनित पाठ के बारे में AI से पूछें",
+  "this book": "यह पुस्तक",
+  "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "किसी चयन के बारे में पूछने के लिए सेटिंग्स → AI सहायक में AI सहायक चालू करें।",
+  "Pick a question above, or type your own.": "ऊपर से कोई प्रश्न चुनें, या अपना लिखें।",
+  "Ask about this passage...": "इस अंश के बारे में पूछें...",
+  "Continue in Notebook": "नोटबुक में जारी रखें",
+  "Anthropic (Claude)": "Anthropic (Claude)",
+  "OpenAI": "OpenAI",
+  "Anthropic Configuration": "Anthropic कॉन्फ़िगरेशन",
+  "Bring your own Anthropic API key to talk to Claude directly. Note that Anthropic has no embedding API, so book indexing needs Ollama or an OpenAI-compatible provider.": "Claude से सीधे बात करने के लिए अपनी Anthropic API कुंजी का उपयोग करें। ध्यान दें कि Anthropic के पास एम्बेडिंग API नहीं है, इसलिए पुस्तक अनुक्रमण के लिए Ollama या OpenAI-संगत प्रदाता चाहिए।",
+  "OpenAI Configuration": "OpenAI कॉन्फ़िगरेशन",
+  "Bring your own OpenAI API key. Unlike Anthropic, OpenAI also serves embeddings, so book indexing works on this provider.": "अपनी OpenAI API कुंजी का उपयोग करें। Anthropic के विपरीत, OpenAI एम्बेडिंग भी देता है, इसलिए इस प्रदाता पर पुस्तक अनुक्रमण काम करता है।",
+  "Explain": "समझाएँ",
+  "Summarize": "सारांश",
+  "Background": "पृष्ठभूमि",
+  "Vocabulary": "शब्दावली"
 }
