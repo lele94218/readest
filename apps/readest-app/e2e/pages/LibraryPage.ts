@@ -31,7 +31,9 @@ export class LibraryPage extends BasePage {
   }
 
   async goto(): Promise<void> {
-    await this.page.goto('/library');
+    // The app defaults to Simplified Chinese in this fork; the specs assert
+    // English copy, so pin the lane with the ?lng= override.
+    await this.page.goto('/library?lng=en');
     await this.container.waitFor({ state: 'visible' });
   }
 

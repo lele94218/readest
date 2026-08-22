@@ -63,7 +63,13 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   setRequestedSubPage: (subPage) => set({ requestedSubPage: subPage }),
 
   applyUILanguage: (uiLanguage?: string) => {
-    const locale = uiLanguage ? uiLanguage : navigator.language;
+    // An explicit ?lng= wins over the stored setting. i18next already ranks
+    // querystring above localStorage and navigator (see i18n.ts detection
+    // order); applying the saved uiLanguage at boot used to override it, so
+    // the documented highest-priority source silently did nothing.
+    const override =
+      typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('lng') : null;
+    const locale = override || uiLanguage || navigator.language;
     i18n.changeLanguage(locale);
     initDayjs(locale);
   },

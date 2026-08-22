@@ -27,7 +27,7 @@ const initI18n = async () => {
         tk: ['ru', 'en'],
         ug: ['ru', 'en'],
         tt: ['ru', 'en'],
-        default: ['en'],
+        default: ['zh-CN', 'en'],
       },
       ns: ['translation'],
       defaultNS: 'translation',

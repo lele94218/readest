@@ -733,9 +733,9 @@ const AIPanel: React.FC = () => {
               onChange={(e) => setAnthropicModel(e.target.value)}
               disabled={!enabled}
             >
-              {ANTHROPIC_MODELS.map(({ id, label }) => (
+              {ANTHROPIC_MODELS.map(({ id, label, input, output }) => (
                 <option key={id} value={id}>
-                  {label}
+                  {`${label} — $${input} / $${output} per 1M`}
                 </option>
               ))}
             </select>
@@ -782,9 +782,9 @@ const AIPanel: React.FC = () => {
               onChange={(e) => setOpenaiModel(e.target.value)}
               disabled={!enabled}
             >
-              {OPENAI_MODELS.map(({ id, label }) => (
+              {OPENAI_MODELS.map(({ id, label, input, output }) => (
                 <option key={id} value={id}>
-                  {label}
+                  {`${label} — $${input} / $${output} per 1M`}
                 </option>
               ))}
             </select>
@@ -798,9 +798,9 @@ const AIPanel: React.FC = () => {
               onChange={(e) => setOpenaiEmbeddingModel(e.target.value)}
               disabled={!enabled}
             >
-              {OPENAI_EMBEDDING_MODELS.map(({ id, label }) => (
+              {OPENAI_EMBEDDING_MODELS.map(({ id, label, input }) => (
                 <option key={id} value={id}>
-                  {label}
+                  {`${label} — $${input} per 1M`}
                 </option>
               ))}
             </select>

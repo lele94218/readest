@@ -1,6 +1,7 @@
 import { describe, test, expect, beforeEach, vi } from 'vitest';
 import { useSettingsStore } from '@/store/settingsStore';
 import { setCachedUserPlan } from '@/services/sync/cloudSyncProvider';
+import { isCloudSyncAllowed } from '@/utils/access';
 import { useLibraryStore } from '@/store/libraryStore';
 import { useFileSyncStore } from '@/store/fileSyncStore';
 import type { SystemSettings } from '@/types/settings';
@@ -9,6 +10,11 @@ const syncLibrary = vi.fn().mockResolvedValue({ booksSynced: 0 });
 const pushBookFile = vi.fn().mockResolvedValue({ uploaded: true });
 const pushBookCover = vi.fn().mockResolvedValue({ uploaded: true });
 const downloadBookFile = vi.fn().mockResolvedValue(true);
+
+vi.mock('@/utils/access', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/utils/access')>();
+  return { ...actual, isCloudSyncAllowed: vi.fn(actual.isCloudSyncAllowed) };
+});
 
 vi.mock('@/services/sync/file/providerRegistry', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@/services/sync/file/providerRegistry')>();
@@ -277,8 +283,16 @@ describe('getReadyFileSyncBackends', () => {
     expect(getReadyFileSyncBackends(settings)).toEqual(['webdav', 'gdrive']);
   });
 
-  test('excludes everything when the plan gate pauses third-party sync', () => {
+  // This fork ships CLOUD_SYNC_REQUIRES_PREMIUM off, so a free plan is allowed
+  // through. The pause path still has to work for anyone who flips it back on,
+  // so drive it from the gate rather than from the plan.
+  test('a free plan is no longer paused (paywall off in this fork)', () => {
     setCachedUserPlan('free');
+    expect(getReadyFileSyncBackends(settings)).toEqual(['webdav', 'gdrive']);
+  });
+
+  test('excludes everything when the plan gate pauses third-party sync', () => {
+    vi.mocked(isCloudSyncAllowed).mockReturnValue(false);
     expect(getReadyFileSyncBackends(settings)).toEqual([]);
   });
 

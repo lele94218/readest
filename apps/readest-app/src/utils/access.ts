@@ -64,8 +64,13 @@ export const isCloudSyncInPlan = (plan: UserPlan): boolean =>
  * provider is paused (never a silent fallback to Readest Cloud uploads, #4959).
  * Every gate goes through {@link isCloudSyncAllowed}, so this flag is the
  * whole toggle.
+ *
+ * OFF in this fork. These providers write to storage the user already owns
+ * and pays for — a WebDAV box, an S3 bucket, their own Drive — so no Readest
+ * infrastructure is consumed by ungating them. Readest Cloud's own quota is
+ * unaffected: the server enforces that from the JWT plan claim.
  */
-export const CLOUD_SYNC_REQUIRES_PREMIUM = true;
+export const CLOUD_SYNC_REQUIRES_PREMIUM = false;
 
 /**
  * Whether third-party cloud sync is available for a plan. Falls back to the
@@ -93,7 +98,7 @@ export const isTTSCacheInPlan = (plan: UserPlan): boolean =>
  * automatic playback cache (audio kept as the user listens) is unaffected —
  * only the explicit download UI is gated.
  */
-export const TTS_CACHE_REQUIRES_PREMIUM = true;
+export const TTS_CACHE_REQUIRES_PREMIUM = false;
 
 export const isTTSCacheAllowed = (plan: UserPlan): boolean =>
   !TTS_CACHE_REQUIRES_PREMIUM || isTTSCacheInPlan(plan);

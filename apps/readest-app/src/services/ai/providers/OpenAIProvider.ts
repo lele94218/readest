@@ -6,20 +6,23 @@ import { AI_TIMEOUTS } from '../utils/retry';
 import { getAIFetch } from '../utils/httpFetch';
 
 const DEFAULT_BASE_URL = 'https://api.openai.com/v1';
-export const DEFAULT_OPENAI_MODEL = 'gpt-5.1';
+export const DEFAULT_OPENAI_MODEL = 'gpt-5.4-mini';
 export const DEFAULT_OPENAI_EMBEDDING_MODEL = 'text-embedding-3-small';
 
-/** Curated picker list; any other id can be typed in as a custom model. */
+/**
+ * Curated picker list. Prices are USD per million tokens (input / output),
+ * checked against developers.openai.com/api/docs/pricing on 2026-08-21.
+ */
 export const OPENAI_MODELS = [
-  { id: 'gpt-5.1', label: 'GPT-5.1' },
-  { id: 'gpt-5.1-mini', label: 'GPT-5.1 mini' },
-  { id: 'gpt-4.1', label: 'GPT-4.1' },
-  { id: 'gpt-4.1-mini', label: 'GPT-4.1 mini' },
+  { id: 'gpt-5.6-sol', label: 'GPT-5.6 Sol', input: 4, output: 20 },
+  { id: 'gpt-5.4-mini', label: 'GPT-5.4 mini', input: 0.75, output: 4.5 },
+  { id: 'gpt-5.4-nano', label: 'GPT-5.4 nano', input: 0.2, output: 1.25 },
+  { id: 'gpt-4o-mini', label: 'GPT-4o mini', input: 0.15, output: 0.6 },
 ] as const;
 
 export const OPENAI_EMBEDDING_MODELS = [
-  { id: 'text-embedding-3-small', label: 'text-embedding-3-small' },
-  { id: 'text-embedding-3-large', label: 'text-embedding-3-large' },
+  { id: 'text-embedding-3-small', label: 'text-embedding-3-small', input: 0.02 },
+  { id: 'text-embedding-3-large', label: 'text-embedding-3-large', input: 0.13 },
 ] as const;
 
 /**

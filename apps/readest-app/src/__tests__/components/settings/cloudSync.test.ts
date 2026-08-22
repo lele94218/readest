@@ -28,13 +28,20 @@ describe('isCloudSyncInPlan', () => {
   });
 });
 
-describe('isCloudSyncAllowed (premium paywall)', () => {
-  test('third-party cloud sync requires a paid plan', () => {
-    expect(CLOUD_SYNC_REQUIRES_PREMIUM).toBe(true);
-    expect(isCloudSyncAllowed('free')).toBe(false);
+describe('isCloudSyncAllowed (paywall off in this fork)', () => {
+  test('third-party cloud sync is open to every plan', () => {
+    expect(CLOUD_SYNC_REQUIRES_PREMIUM).toBe(false);
+    expect(isCloudSyncAllowed('free')).toBe(true);
     expect(isCloudSyncAllowed('plus')).toBe(true);
     expect(isCloudSyncAllowed('pro')).toBe(true);
     expect(isCloudSyncAllowed('purchase')).toBe(true);
+  });
+
+  // The plan membership helper is what the switch gates; keep it honest so
+  // flipping the switch back on restores the upstream behaviour intact.
+  test('plan membership is unchanged by the switch', () => {
+    expect(isCloudSyncInPlan('free')).toBe(false);
+    expect(isCloudSyncInPlan('plus')).toBe(true);
   });
 });
 

@@ -124,17 +124,20 @@ const TTSPlayerSheet = ({
   const progress = useBookProgress(bookKey);
   const viewSettings = getViewSettings(bookKey);
 
-  // Offline audio (pre-downloading Read Aloud audio per chapter) is a premium
-  // feature: any paid plan can use it; free / signed-out users see the row with
-  // a Premium badge that routes to the upgrade page instead of the per-chapter
-  // download controls. Mirrors the cloud-sync paywall in IntegrationsPanel.
+  // Offline audio (pre-downloading Read Aloud audio per chapter). Upstream
+  // gates this behind a paid plan; this fork ships TTS_CACHE_REQUIRES_PREMIUM
+  // off, so `isTTSCacheAllowed` lets every plan — and signed-out users —
+  // through. The audio is synthesised and stored on the device, so there is
+  // nothing to entitle.
   const { userProfilePlan } = useQuotaStats();
   const isDownloadPremium = isTTSCacheAllowed(userProfilePlan ?? 'free');
-  // Only badge users who can't use it yet: signed out (known at once), or a
-  // resolved plan without the feature. Suppress it while a signed-in user's
-  // plan is still loading so it never flashes at an entitled user.
+  // Badge only users who genuinely can't use it: signed out (known at once),
+  // or a resolved plan without the feature. Suppressed while a signed-in
+  // user's plan is still loading so it never flashes at an entitled user —
+  // and suppressed entirely once the paywall switch is off, since the row is
+  // then live for everyone.
   const premiumBadge =
-    !user || (userProfilePlan !== undefined && !isDownloadPremium) ? _('Premium') : undefined;
+    !isDownloadPremium && (!user || userProfilePlan !== undefined) ? _('Premium') : undefined;
 
   // A book can carry a coverImageUrl that no longer resolves (cover never
   // extracted, file pruned). A broken <img> still occupies its h-32 box, so

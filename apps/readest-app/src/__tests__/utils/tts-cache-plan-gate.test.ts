@@ -14,12 +14,19 @@ describe('isTTSCacheInPlan', () => {
   });
 });
 
-describe('isTTSCacheAllowed (premium paywall)', () => {
-  test('downloading TTS audio for offline playback requires a paid plan', () => {
-    expect(TTS_CACHE_REQUIRES_PREMIUM).toBe(true);
-    expect(isTTSCacheAllowed('free')).toBe(false);
+describe('isTTSCacheAllowed (paywall off in this fork)', () => {
+  test('downloading TTS audio for offline playback is open to every plan', () => {
+    expect(TTS_CACHE_REQUIRES_PREMIUM).toBe(false);
+    expect(isTTSCacheAllowed('free')).toBe(true);
     expect(isTTSCacheAllowed('plus')).toBe(true);
     expect(isTTSCacheAllowed('pro')).toBe(true);
     expect(isTTSCacheAllowed('purchase')).toBe(true);
+  });
+
+  // The plan membership helper is what the switch gates; keep it honest so
+  // flipping the switch back on restores the upstream behaviour intact.
+  test('plan membership is unchanged by the switch', () => {
+    expect(isTTSCacheInPlan('free')).toBe(false);
+    expect(isTTSCacheInPlan('plus')).toBe(true);
   });
 });

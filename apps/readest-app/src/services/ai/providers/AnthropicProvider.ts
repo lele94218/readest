@@ -11,12 +11,18 @@ export const DEFAULT_ANTHROPIC_MODEL = 'claude-opus-5';
 /**
  * Models offered in the settings picker. Anthropic's `/v1/models` endpoint
  * exists, but it also lists dated snapshots and retired aliases, so we ship a
- * curated list and let users type a custom id for anything else.
+ * curated list.
+ *
+ * Prices are USD per million tokens (input / output), checked against
+ * platform.claude.com/docs/en/about-claude/pricing on 2026-08-21. They are
+ * shown in the picker so the cost of a tap is visible before you make it —
+ * Ask AI sends a passage and gets a paragraph back, so the output rate
+ * dominates.
  */
 export const ANTHROPIC_MODELS = [
-  { id: 'claude-opus-5', label: 'Claude Opus 5' },
-  { id: 'claude-sonnet-5', label: 'Claude Sonnet 5' },
-  { id: 'claude-haiku-4-5', label: 'Claude Haiku 4.5' },
+  { id: 'claude-opus-5', label: 'Claude Opus 5', input: 5, output: 25 },
+  { id: 'claude-sonnet-5', label: 'Claude Sonnet 5', input: 2, output: 10 },
+  { id: 'claude-haiku-4-5', label: 'Claude Haiku 4.5', input: 1, output: 5 },
 ] as const;
 
 /**

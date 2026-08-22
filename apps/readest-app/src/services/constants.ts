@@ -417,7 +417,10 @@ export const DEFAULT_PARAGRAPH_MODE_CONFIG: ParagraphModeConfig = {
 
 export const DEFAULT_VIEW_CONFIG: ViewConfig = {
   sideBarTab: 'toc',
-  uiLanguage: '',
+  // '' means "follow the system language". This fork ships Simplified Chinese
+  // as the default instead; Settings → Language still offers System Language
+  // and every other locale.
+  uiLanguage: 'zh-CN',
   sortedTOC: false,
 
   doubleBorder: false,
