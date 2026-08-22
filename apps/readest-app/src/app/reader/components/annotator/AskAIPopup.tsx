@@ -64,9 +64,11 @@ const AskAIPopup: React.FC<AskAIPopupProps> = ({
 
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
-  // What was actually sent — a preset instruction or the typed question.
-  // The notebook hand-off replays it, so the input box alone is not enough.
-  const [asked, setAsked] = useState('');
+  // What to show as the question when the exchange is saved. A preset sends a
+  // long English instruction to the model, which must not end up as the first
+  // line of the reader's note — so presets record their translated label here
+  // while a typed question records itself.
+  const [askedLabel, setAskedLabel] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -83,7 +85,7 @@ const AskAIPopup: React.FC<AskAIPopupProps> = ({
   }, []);
 
   const ask = useCallback(
-    async (asked: string) => {
+    async (asked: string, label?: string) => {
       if (!asked.trim() || loading) return;
       abortRef.current?.abort();
       const controller = new AbortController();
@@ -92,7 +94,7 @@ const AskAIPopup: React.FC<AskAIPopupProps> = ({
       setLoading(true);
       setError(null);
       setAnswer('');
-      setAsked(asked.trim());
+      setAskedLabel((label ?? asked).trim());
 
       const ctx: SelectionAskContext = {
         bookTitle: bookData?.book?.title || _('this book'),
@@ -173,7 +175,7 @@ const AskAIPopup: React.FC<AskAIPopupProps> = ({
                 className='eink-bordered rounded-full bg-base-100 px-2.5 py-1 text-xs disabled:opacity-50'
                 onClick={() => {
                   setQuestion('');
-                  ask(preset.instruction);
+                  ask(preset.instruction, _(preset.label));
                 }}
               >
                 {_(preset.label)}
@@ -223,7 +225,7 @@ const AskAIPopup: React.FC<AskAIPopupProps> = ({
               <button
                 type='button'
                 className='shrink-0 whitespace-nowrap text-xs text-base-content/60 underline'
-                onClick={() => onSaveAsNote(asked, answer)}
+                onClick={() => onSaveAsNote(askedLabel, answer)}
               >
                 {_('Save as Note')}
               </button>

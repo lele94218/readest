@@ -2447,5 +2447,7 @@
   "Vocabulary": "المفردات",
   "Saved to notes": "تم الحفظ في الملاحظات",
   "Save as Note": "حفظ كملاحظة",
-  "Indexing failed: {{error}}": "فشلت الفهرسة: {{error}}"
+  "Indexing failed: {{error}}": "فشلت الفهرسة: {{error}}",
+  "The assistant runtime failed to start.": "تعذّر بدء تشغيل بيئة المساعد.",
+  "No retrieval backend is available for this book.": "لا توجد خدمة استرجاع متاحة لهذا الكتاب."
 }

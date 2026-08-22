@@ -2211,5 +2211,7 @@
   "Vocabulary": "Woordenschat",
   "Saved to notes": "Opgeslagen in notities",
   "Save as Note": "Opslaan als notitie",
-  "Indexing failed: {{error}}": "Indexeren mislukt: {{error}}"
+  "Indexing failed: {{error}}": "Indexeren mislukt: {{error}}",
+  "The assistant runtime failed to start.": "De assistent-runtime kon niet starten.",
+  "No retrieval backend is available for this book.": "Er is geen retrieval-backend beschikbaar voor dit boek."
 }

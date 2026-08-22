@@ -2152,5 +2152,7 @@
   "Vocabulary": "ཐ་སྙད།",
   "Saved to notes": "ཟིན་བྲིས་སུ་ཉར་ཟིན།",
   "Save as Note": "ཟིན་བྲིས་སུ་ཉར།",
-  "Indexing failed: {{error}}": "དཀར་ཆག་བཟོ་བར་ཕམ་སོང་། {{error}}"
+  "Indexing failed: {{error}}": "དཀར་ཆག་བཟོ་བར་ཕམ་སོང་། {{error}}",
+  "The assistant runtime failed to start.": "རོགས་པའི་ལས་སྣོན་འགོ་འཛུགས་མ་ཐུབ།",
+  "No retrieval backend is available for this book.": "དེབ་འདིར་འཚོལ་བཤེར་རྒྱབ་གཞི་མེད།"
 }

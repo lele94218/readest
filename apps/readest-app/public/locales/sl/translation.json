@@ -2329,5 +2329,7 @@
   "Vocabulary": "Besedišče",
   "Saved to notes": "Shranjeno med beležke",
   "Save as Note": "Shrani kot beležko",
-  "Indexing failed: {{error}}": "Indeksiranje ni uspelo: {{error}}"
+  "Indexing failed: {{error}}": "Indeksiranje ni uspelo: {{error}}",
+  "The assistant runtime failed to start.": "Izvajalnega okolja pomočnika ni bilo mogoče zagnati.",
+  "No retrieval backend is available for this book.": "Za to knjigo ni na voljo iskalnega zaledja."
 }

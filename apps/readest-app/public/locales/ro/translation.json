@@ -2270,5 +2270,7 @@
   "Vocabulary": "Vocabular",
   "Saved to notes": "Salvat în notițe",
   "Save as Note": "Salvează ca notiță",
-  "Indexing failed: {{error}}": "Indexarea a eșuat: {{error}}"
+  "Indexing failed: {{error}}": "Indexarea a eșuat: {{error}}",
+  "The assistant runtime failed to start.": "Mediul de execuție al asistentului nu a putut porni.",
+  "No retrieval backend is available for this book.": "Nu există un backend de căutare disponibil pentru această carte."
 }

@@ -2211,5 +2211,7 @@
   "Vocabulary": "Λεξιλόγιο",
   "Saved to notes": "Αποθηκεύτηκε στις σημειώσεις",
   "Save as Note": "Αποθήκευση ως σημείωση",
-  "Indexing failed: {{error}}": "Η ευρετηρίαση απέτυχε: {{error}}"
+  "Indexing failed: {{error}}": "Η ευρετηρίαση απέτυχε: {{error}}",
+  "The assistant runtime failed to start.": "Ο χρόνος εκτέλεσης του βοηθού δεν ξεκίνησε.",
+  "No retrieval backend is available for this book.": "Δεν υπάρχει διαθέσιμο backend ανάκτησης για αυτό το βιβλίο."
 }

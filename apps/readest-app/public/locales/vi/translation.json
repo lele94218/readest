@@ -2152,5 +2152,7 @@
   "Vocabulary": "Từ vựng",
   "Saved to notes": "Đã lưu vào ghi chú",
   "Save as Note": "Lưu thành ghi chú",
-  "Indexing failed: {{error}}": "Lập chỉ mục thất bại: {{error}}"
+  "Indexing failed: {{error}}": "Lập chỉ mục thất bại: {{error}}",
+  "The assistant runtime failed to start.": "Không khởi động được runtime của trợ lý.",
+  "No retrieval backend is available for this book.": "Không có backend truy xuất nào khả dụng cho cuốn sách này."
 }

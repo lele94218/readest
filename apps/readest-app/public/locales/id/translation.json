@@ -2152,5 +2152,7 @@
   "Vocabulary": "Kosakata",
   "Saved to notes": "Disimpan ke catatan",
   "Save as Note": "Simpan sebagai catatan",
-  "Indexing failed: {{error}}": "Pengindeksan gagal: {{error}}"
+  "Indexing failed: {{error}}": "Pengindeksan gagal: {{error}}",
+  "The assistant runtime failed to start.": "Runtime asisten gagal dimulai.",
+  "No retrieval backend is available for this book.": "Tidak ada backend pengambilan yang tersedia untuk buku ini."
 }

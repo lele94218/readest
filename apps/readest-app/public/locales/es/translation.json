@@ -2270,5 +2270,7 @@
   "Vocabulary": "Vocabulario",
   "Saved to notes": "Guardado en las notas",
   "Save as Note": "Guardar como nota",
-  "Indexing failed: {{error}}": "Error al indexar: {{error}}"
+  "Indexing failed: {{error}}": "Error al indexar: {{error}}",
+  "The assistant runtime failed to start.": "No se pudo iniciar el entorno del asistente.",
+  "No retrieval backend is available for this book.": "No hay backend de recuperación disponible para este libro."
 }

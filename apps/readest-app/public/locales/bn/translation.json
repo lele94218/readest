@@ -2211,5 +2211,7 @@
   "Vocabulary": "শব্দভান্ডার",
   "Saved to notes": "নোটে সংরক্ষিত হয়েছে",
   "Save as Note": "নোট হিসেবে সংরক্ষণ",
-  "Indexing failed: {{error}}": "ইনডেক্সিং ব্যর্থ: {{error}}"
+  "Indexing failed: {{error}}": "ইনডেক্সিং ব্যর্থ: {{error}}",
+  "The assistant runtime failed to start.": "সহকারীর রানটাইম চালু করা যায়নি।",
+  "No retrieval backend is available for this book.": "এই বইয়ের জন্য কোনো রিট্রিভাল ব্যাকএন্ড উপলব্ধ নেই।"
 }

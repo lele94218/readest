@@ -2152,5 +2152,7 @@
   "Vocabulary": "生字",
   "Saved to notes": "已存入筆記",
   "Save as Note": "存為筆記",
-  "Indexing failed: {{error}}": "索引失敗：{{error}}"
+  "Indexing failed: {{error}}": "索引失敗：{{error}}",
+  "The assistant runtime failed to start.": "助手執行環境啟動失敗。",
+  "No retrieval backend is available for this book.": "這本書沒有可用的檢索後端。"
 }

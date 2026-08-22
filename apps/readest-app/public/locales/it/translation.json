@@ -2270,5 +2270,7 @@
   "Vocabulary": "Lessico",
   "Saved to notes": "Salvato nelle note",
   "Save as Note": "Salva come nota",
-  "Indexing failed: {{error}}": "Indicizzazione non riuscita: {{error}}"
+  "Indexing failed: {{error}}": "Indicizzazione non riuscita: {{error}}",
+  "The assistant runtime failed to start.": "Impossibile avviare il runtime dell'assistente.",
+  "No retrieval backend is available for this book.": "Nessun backend di recupero disponibile per questo libro."
 }

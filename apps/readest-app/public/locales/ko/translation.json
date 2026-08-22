@@ -2152,5 +2152,7 @@
   "Vocabulary": "어휘",
   "Saved to notes": "노트에 저장됨",
   "Save as Note": "노트로 저장",
-  "Indexing failed: {{error}}": "색인 실패: {{error}}"
+  "Indexing failed: {{error}}": "색인 실패: {{error}}",
+  "The assistant runtime failed to start.": "어시스턴트 런타임을 시작하지 못했습니다.",
+  "No retrieval backend is available for this book.": "이 책에 사용할 수 있는 검색 백엔드가 없습니다."
 }

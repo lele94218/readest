@@ -17,7 +17,9 @@ export class LegacyIdbBackend implements RetrievalBackend {
   constructor(private readonly settings: AISettings) {}
 
   isIndexed(bookHash: string): Promise<boolean> {
-    return isBookIndexed(bookHash);
+    // Pass the settings so an index built with a different embedding model
+    // reports as missing rather than silently returning zero-scored vectors.
+    return isBookIndexed(bookHash, this.settings);
   }
 
   async indexBook(

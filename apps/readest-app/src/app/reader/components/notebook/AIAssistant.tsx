@@ -76,6 +76,18 @@ interface AIAssistantProps {
 }
 
 // inner component that uses the runtime hook
+/**
+ * Why the AI tab has nothing to show. Every one of these used to be a bare
+ * `return null`, which paints an empty pane: no composer, no message, nothing
+ * to act on and nothing to report. Naming the reason costs one line and turns
+ * a blank screen into something diagnosable.
+ */
+const AIUnavailable = ({ reason }: { reason: string }) => (
+  <div className='flex h-full flex-col items-center justify-center gap-2 p-4 text-center'>
+    <p className='text-muted-foreground text-xs'>{reason}</p>
+  </div>
+);
+
 const AIAssistantChat = ({
   aiSettings,
   bookHash,
@@ -209,11 +221,14 @@ const AIAssistantWithRuntime = ({
   currentTurnId: string | null;
   onSourceClick?: (source: SourceItem) => void;
 }) => {
+  const _ = useTranslation();
   const runtime = useLocalRuntime(adapter, {
     adapters: historyAdapter ? { history: historyAdapter } : undefined,
   });
 
-  if (!runtime) return null;
+  if (!runtime) {
+    return <AIUnavailable reason={_('The assistant runtime failed to start.')} />;
+  }
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
@@ -345,16 +360,31 @@ const LegacyAIAssistant = ({ bookKey }: AIAssistantProps) => {
 
   // check if book is indexed on mount
   useEffect(() => {
-    if (bookHash && backend) {
-      backend.isIndexed(bookHash).then((result) => {
-        setIndexed(result);
-        setIsLoading(false);
-      });
-    } else if (!backend) {
+    if (!bookHash || !backend) {
       setIsLoading(false);
-    } else {
-      setIsLoading(false);
+      return;
     }
+    let cancelled = false;
+    backend
+      .isIndexed(bookHash)
+      .then((result) => {
+        if (!cancelled) setIndexed(result);
+      })
+      .catch((e) => {
+        // A rejection here used to strand the panel: `isLoading` stayed true
+        // and the component renders nothing while loading, so opening a
+        // conversation showed a blank pane with no composer and no error.
+        // Treat an unreadable index as "not indexed" and let the panel offer
+        // to build one.
+        aiLogger.rag.indexError(bookHash, `isIndexed failed: ${(e as Error).message}`);
+        if (!cancelled) setIndexed(false);
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, [bookHash, backend]);
 
   const handleIndex = useCallback(async () => {
@@ -458,7 +488,9 @@ const LegacyAIAssistant = ({ bookKey }: AIAssistantProps) => {
     );
   }
 
-  if (!backend) return null;
+  if (!backend) {
+    return <AIUnavailable reason={_('No retrieval backend is available for this book.')} />;
+  }
 
   return (
     <AIAssistantChat

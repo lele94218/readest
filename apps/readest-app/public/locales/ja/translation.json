@@ -2152,5 +2152,7 @@
   "Vocabulary": "語彙",
   "Saved to notes": "ノートに保存しました",
   "Save as Note": "ノートに保存",
-  "Indexing failed: {{error}}": "インデックス作成に失敗しました: {{error}}"
+  "Indexing failed: {{error}}": "インデックス作成に失敗しました: {{error}}",
+  "The assistant runtime failed to start.": "アシスタントのランタイムを起動できませんでした。",
+  "No retrieval backend is available for this book.": "この本で使える検索バックエンドがありません。"
 }

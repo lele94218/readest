@@ -2270,5 +2270,7 @@
   "Vocabulary": "אוצר מילים",
   "Saved to notes": "נשמר בהערות",
   "Save as Note": "שמור כהערה",
-  "Indexing failed: {{error}}": "האינדוקס נכשל: {{error}}"
+  "Indexing failed: {{error}}": "האינדוקס נכשל: {{error}}",
+  "The assistant runtime failed to start.": "סביבת הריצה של העוזר לא הצליחה להתחיל.",
+  "No retrieval backend is available for this book.": "אין שרת אחזור זמין לספר הזה."
 }

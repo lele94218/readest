@@ -2152,5 +2152,7 @@
   "Vocabulary": "Perbendaharaan Kata",
   "Saved to notes": "Disimpan ke nota",
   "Save as Note": "Simpan sebagai nota",
-  "Indexing failed: {{error}}": "Pengindeksan gagal: {{error}}"
+  "Indexing failed: {{error}}": "Pengindeksan gagal: {{error}}",
+  "The assistant runtime failed to start.": "Masa jalan pembantu gagal dimulakan.",
+  "No retrieval backend is available for this book.": "Tiada bahagian belakang pengambilan tersedia untuk buku ini."
 }

@@ -2152,5 +2152,7 @@
   "Vocabulary": "คำศัพท์",
   "Saved to notes": "บันทึกลงในโน้ตแล้ว",
   "Save as Note": "บันทึกเป็นโน้ต",
-  "Indexing failed: {{error}}": "การทำดัชนีล้มเหลว: {{error}}"
+  "Indexing failed: {{error}}": "การทำดัชนีล้มเหลว: {{error}}",
+  "The assistant runtime failed to start.": "ไม่สามารถเริ่มรันไทม์ของผู้ช่วยได้",
+  "No retrieval backend is available for this book.": "ไม่มีแบ็กเอนด์การค้นคืนสำหรับหนังสือเล่มนี้"
 }

@@ -2211,5 +2211,7 @@
   "Vocabulary": "शब्दावली",
   "Saved to notes": "नोट्स में सहेजा गया",
   "Save as Note": "नोट के रूप में सहेजें",
-  "Indexing failed: {{error}}": "अनुक्रमण विफल: {{error}}"
+  "Indexing failed: {{error}}": "अनुक्रमण विफल: {{error}}",
+  "The assistant runtime failed to start.": "सहायक रनटाइम शुरू नहीं हो सका।",
+  "No retrieval backend is available for this book.": "इस पुस्तक के लिए कोई रिट्रीवल बैकएंड उपलब्ध नहीं है।"
 }

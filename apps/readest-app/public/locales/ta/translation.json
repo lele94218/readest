@@ -2211,5 +2211,7 @@
   "Vocabulary": "சொற்களஞ்சியம்",
   "Saved to notes": "குறிப்புகளில் சேமிக்கப்பட்டது",
   "Save as Note": "குறிப்பாகச் சேமி",
-  "Indexing failed: {{error}}": "அட்டவணைப்படுத்தல் தோல்வி: {{error}}"
+  "Indexing failed: {{error}}": "அட்டவணைப்படுத்தல் தோல்வி: {{error}}",
+  "The assistant runtime failed to start.": "உதவியாளர் இயக்க நேரத்தைத் தொடங்க முடியவில்லை.",
+  "No retrieval backend is available for this book.": "இந்தப் புத்தகத்திற்கு மீட்டெடுப்பு பின்தளம் எதுவும் இல்லை."
 }

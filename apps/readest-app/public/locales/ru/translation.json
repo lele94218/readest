@@ -2329,5 +2329,7 @@
   "Vocabulary": "Словарь",
   "Saved to notes": "Сохранено в заметки",
   "Save as Note": "Сохранить как заметку",
-  "Indexing failed: {{error}}": "Индексация не удалась: {{error}}"
+  "Indexing failed: {{error}}": "Индексация не удалась: {{error}}",
+  "The assistant runtime failed to start.": "Не удалось запустить среду ассистента.",
+  "No retrieval backend is available for this book.": "Для этой книги нет доступного бэкенда поиска."
 }

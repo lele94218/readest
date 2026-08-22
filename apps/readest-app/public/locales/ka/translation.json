@@ -2211,5 +2211,7 @@
   "Vocabulary": "ლექსიკა",
   "Saved to notes": "შენახულია ჩანაწერებში",
   "Save as Note": "შენახვა ჩანაწერად",
-  "Indexing failed: {{error}}": "ინდექსირება ვერ მოხერხდა: {{error}}"
+  "Indexing failed: {{error}}": "ინდექსირება ვერ მოხერხდა: {{error}}",
+  "The assistant runtime failed to start.": "ასისტენტის გარემო ვერ გაეშვა.",
+  "No retrieval backend is available for this book.": "ამ წიგნისთვის ხელმისაწვდომი საძიებო backend არ არის."
 }

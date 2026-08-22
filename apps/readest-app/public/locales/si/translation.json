@@ -2211,5 +2211,7 @@
   "Vocabulary": "වචන මාලාව",
   "Saved to notes": "සටහන් වෙත සුරකින ලදී",
   "Save as Note": "සටහනක් ලෙස සුරකින්න",
-  "Indexing failed: {{error}}": "සුචිගත කිරීම අසාර්ථකයි: {{error}}"
+  "Indexing failed: {{error}}": "සුචිගත කිරීම අසාර්ථකයි: {{error}}",
+  "The assistant runtime failed to start.": "සහායක ධාවන කාලය ආරම්භ කිරීමට නොහැකි විය.",
+  "No retrieval backend is available for this book.": "මෙම පොත සඳහා ලබාගැනීමේ පසුබිමක් නොමැත."
 }

@@ -2211,5 +2211,7 @@
   "Vocabulary": "Lug‘at",
   "Saved to notes": "Eslatmalarga saqlandi",
   "Save as Note": "Eslatma sifatida saqlash",
-  "Indexing failed: {{error}}": "Indekslash muvaffaqiyatsiz: {{error}}"
+  "Indexing failed: {{error}}": "Indekslash muvaffaqiyatsiz: {{error}}",
+  "The assistant runtime failed to start.": "Yordamchi ish muhitini ishga tushirib bo‘lmadi.",
+  "No retrieval backend is available for this book.": "Bu kitob uchun qidiruv backend'i mavjud emas."
 }

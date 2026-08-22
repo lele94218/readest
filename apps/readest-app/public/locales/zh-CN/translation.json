@@ -2152,5 +2152,7 @@
   "Vocabulary": "生词",
   "Saved to notes": "已存入笔记",
   "Save as Note": "存为笔记",
-  "Indexing failed: {{error}}": "索引失败：{{error}}"
+  "Indexing failed: {{error}}": "索引失败：{{error}}",
+  "The assistant runtime failed to start.": "助手运行时启动失败。",
+  "No retrieval backend is available for this book.": "这本书没有可用的检索后端。"
 }

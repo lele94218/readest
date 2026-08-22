@@ -2329,5 +2329,7 @@
   "Vocabulary": "Słownictwo",
   "Saved to notes": "Zapisano w notatkach",
   "Save as Note": "Zapisz jako notatkę",
-  "Indexing failed: {{error}}": "Indeksowanie nie powiodło się: {{error}}"
+  "Indexing failed: {{error}}": "Indeksowanie nie powiodło się: {{error}}",
+  "The assistant runtime failed to start.": "Nie udało się uruchomić środowiska asystenta.",
+  "No retrieval backend is available for this book.": "Brak dostępnego zaplecza wyszukiwania dla tej książki."
 }

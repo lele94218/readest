@@ -2233,6 +2233,10 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
         )}
       {showAskAIPopup && trianglePosition && askAIPopupPosition && selection && (
         <AskAIPopup
+          // Re-mount per passage: the answer, the question and the in-flight
+          // stream all belong to one selection, and reusing the instance would
+          // show the previous passage's answer under a new highlight.
+          key={selection.cfi ?? selection.text}
           bookKey={bookKey}
           selection={selection}
           position={askAIPopupPosition}

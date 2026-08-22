@@ -25,10 +25,42 @@ export interface BookDocType {
   metadata?: { title?: string | { [key: string]: string }; author?: string | { name?: string } };
 }
 
+/**
+ * Chunks per embedding request. Sized so a batch stays well inside a provider's
+ * per-request token ceiling (chunks run several hundred tokens each) while
+ * still being few enough round trips to stay quick, and small enough that a
+ * retry re-does seconds of work rather than a whole book.
+ */
+const EMBEDDING_BATCH_SIZE = 64;
+
 const indexingStates = new Map<string, IndexingState>();
 
-export async function isBookIndexed(bookHash: string): Promise<boolean> {
-  const indexed = await aiStore.isIndexed(bookHash);
+/** Name of the embedding model the given settings would index with. */
+function embeddingModelNameFor(settings: AISettings): string {
+  switch (settings.provider) {
+    case 'ollama':
+      return settings.ollamaEmbeddingModel;
+    case 'openrouter':
+      return settings.openrouterEmbeddingModel || 'text-embedding-3-small';
+    case 'openai':
+      return settings.openaiEmbeddingModel || 'text-embedding-3-small';
+    default:
+      return settings.aiGatewayEmbeddingModel || 'text-embedding-3-small';
+  }
+}
+
+export async function isBookIndexed(bookHash: string, settings?: AISettings): Promise<boolean> {
+  const meta = await aiStore.getMeta(bookHash);
+  const indexed = meta !== null && meta.totalChunks > 0;
+  // An index built with a different embedding model is worse than no index:
+  // the vectors have a different dimensionality, cosineSimilarity returns 0
+  // for every mismatched pair, and retrieval silently degrades to nothing
+  // while the book still reports itself as indexed. Treat it as unindexed so
+  // the panel offers to build it again.
+  if (indexed && settings && meta!.embeddingModel !== embeddingModelNameFor(settings)) {
+    aiLogger.rag.isIndexed(bookHash, false);
+    return false;
+  }
   aiLogger.rag.isIndexed(bookHash, indexed);
   return indexed;
 }
@@ -131,33 +163,36 @@ export async function indexBook(
     }
 
     onProgress?.({ current: 0, total: allChunks.length, phase: 'embedding' });
-    const embeddingModelName =
-      settings.provider === 'ollama'
-        ? settings.ollamaEmbeddingModel
-        : settings.provider === 'openrouter'
-          ? settings.openrouterEmbeddingModel || 'text-embedding-3-small'
-          : settings.aiGatewayEmbeddingModel || 'text-embedding-3-small';
+    const embeddingModelName = embeddingModelNameFor(settings);
     aiLogger.embedding.start(embeddingModelName, allChunks.length);
 
     const texts = allChunks.map((c) => c.text);
+    const embeddingModel = provider.getEmbeddingModel();
+    let dimensions = 0;
     try {
-      const { embeddings } = await withRetryAndTimeout(
-        () =>
-          embedMany({
-            model: provider.getEmbeddingModel(),
-            values: texts,
-          }),
-        AI_TIMEOUTS.EMBEDDING_BATCH,
-        AI_RETRY_CONFIGS.EMBEDDING,
-      );
-
-      for (let i = 0; i < allChunks.length; i++) {
-        allChunks[i]!.embedding = embeddings[i];
-        state.chunksProcessed = i + 1;
-        state.progress = Math.round(((i + 1) / allChunks.length) * 100);
+      // Embed in batches. A whole book used to go out as one embedMany call
+      // under a single 2-minute timeout, so a long book simply never finished:
+      // the request blew the provider's per-request limits, the one timeout
+      // covered thousands of chunks, and a retry restarted the entire book.
+      // Batching also makes the progress bar real — it used to jump 0 -> 100
+      // after the fact, since there was nothing to report until the end.
+      for (let start = 0; start < texts.length; start += EMBEDDING_BATCH_SIZE) {
+        const batch = texts.slice(start, start + EMBEDDING_BATCH_SIZE);
+        const { embeddings } = await withRetryAndTimeout(
+          () => embedMany({ model: embeddingModel, values: batch }),
+          AI_TIMEOUTS.EMBEDDING_BATCH,
+          AI_RETRY_CONFIGS.EMBEDDING,
+        );
+        for (let i = 0; i < batch.length; i++) {
+          allChunks[start + i]!.embedding = embeddings[i];
+        }
+        dimensions = embeddings[0]?.length || dimensions;
+        const done = Math.min(start + batch.length, allChunks.length);
+        state.chunksProcessed = done;
+        state.progress = Math.round((done / allChunks.length) * 100);
+        onProgress?.({ current: done, total: allChunks.length, phase: 'embedding' });
       }
-      onProgress?.({ current: allChunks.length, total: allChunks.length, phase: 'embedding' });
-      aiLogger.embedding.complete(embeddings.length, allChunks.length, embeddings[0]?.length || 0);
+      aiLogger.embedding.complete(allChunks.length, allChunks.length, dimensions);
     } catch (e) {
       aiLogger.embedding.error('batch', (e as Error).message);
       throw e;

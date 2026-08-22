@@ -2211,5 +2211,7 @@
   "Vocabulary": "واژگان",
   "Saved to notes": "در یادداشت‌ها ذخیره شد",
   "Save as Note": "ذخیره به‌عنوان یادداشت",
-  "Indexing failed: {{error}}": "نمایه‌سازی ناموفق بود: {{error}}"
+  "Indexing failed: {{error}}": "نمایه‌سازی ناموفق بود: {{error}}",
+  "The assistant runtime failed to start.": "زمان اجرای دستیار راه‌اندازی نشد.",
+  "No retrieval backend is available for this book.": "هیچ بک‌اند بازیابی برای این کتاب در دسترس نیست."
 }
