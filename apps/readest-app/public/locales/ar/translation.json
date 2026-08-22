@@ -2435,7 +2435,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "فعّل مساعد الذكاء الاصطناعي من الإعدادات ← مساعد الذكاء الاصطناعي لطرح الأسئلة حول النص المحدد.",
   "Pick a question above, or type your own.": "اختر سؤالاً من الأعلى، أو اكتب سؤالك الخاص.",
   "Ask about this passage...": "اسأل عن هذا المقطع...",
-  "Continue in Notebook": "المتابعة في المفكرة",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "إعدادات Anthropic",
@@ -2445,5 +2444,8 @@
   "Explain": "اشرح",
   "Summarize": "لخّص",
   "Background": "الخلفية",
-  "Vocabulary": "المفردات"
+  "Vocabulary": "المفردات",
+  "Saved to notes": "تم الحفظ في الملاحظات",
+  "Save as Note": "حفظ كملاحظة",
+  "Indexing failed: {{error}}": "فشلت الفهرسة: {{error}}"
 }

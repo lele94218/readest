@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "තෝරාගත් කොටසක් ගැන ඇසීමට සැකසුම් → AI සහායකයා තුළ AI සහායකයා සක්‍රීය කරන්න.",
   "Pick a question above, or type your own.": "ඉහත ප්‍රශ්නයක් තෝරන්න, නැතහොත් ඔබේම එකක් ටයිප් කරන්න.",
   "Ask about this passage...": "මෙම ඡේදය ගැන අසන්න...",
-  "Continue in Notebook": "සටහන් පොතේ දිගටම කරගෙන යන්න",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic වින්‍යාසය",
@@ -2209,5 +2208,8 @@
   "Explain": "පැහැදිලි කරන්න",
   "Summarize": "සාරාංශ කරන්න",
   "Background": "පසුබිම",
-  "Vocabulary": "වචන මාලාව"
+  "Vocabulary": "වචන මාලාව",
+  "Saved to notes": "සටහන් වෙත සුරකින ලදී",
+  "Save as Note": "සටහනක් ලෙස සුරකින්න",
+  "Indexing failed: {{error}}": "සුචිගත කිරීම අසාර්ථකයි: {{error}}"
 }

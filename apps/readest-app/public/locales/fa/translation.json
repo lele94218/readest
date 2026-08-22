@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "برای پرسیدن درباره یک انتخاب، دستیار هوش مصنوعی را در تنظیمات ← دستیار هوش مصنوعی فعال کنید.",
   "Pick a question above, or type your own.": "یکی از پرسش‌های بالا را انتخاب کنید یا پرسش خود را بنویسید.",
   "Ask about this passage...": "درباره این بخش بپرسید...",
-  "Continue in Notebook": "ادامه در دفترچه یادداشت",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "پیکربندی Anthropic",
@@ -2209,5 +2208,8 @@
   "Explain": "توضیح",
   "Summarize": "خلاصه",
   "Background": "پیشینه",
-  "Vocabulary": "واژگان"
+  "Vocabulary": "واژگان",
+  "Saved to notes": "در یادداشت‌ها ذخیره شد",
+  "Save as Note": "ذخیره به‌عنوان یادداشت",
+  "Indexing failed: {{error}}": "نمایه‌سازی ناموفق بود: {{error}}"
 }

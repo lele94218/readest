@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Slå på AI-assistenten under Inställningar → AI-assistent för att ställa frågor om en markering.",
   "Pick a question above, or type your own.": "Välj en fråga ovan eller skriv en egen.",
   "Ask about this passage...": "Fråga om det här avsnittet...",
-  "Continue in Notebook": "Fortsätt i anteckningsboken",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic-konfiguration",
@@ -2209,5 +2208,8 @@
   "Explain": "Förklara",
   "Summarize": "Sammanfatta",
   "Background": "Bakgrund",
-  "Vocabulary": "Ordförråd"
+  "Vocabulary": "Ordförråd",
+  "Saved to notes": "Sparad i anteckningar",
+  "Save as Note": "Spara som anteckning",
+  "Indexing failed: {{error}}": "Indexeringen misslyckades: {{error}}"
 }

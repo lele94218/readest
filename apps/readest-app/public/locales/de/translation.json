@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Aktiviere den KI-Assistenten unter Einstellungen → KI-Assistent, um zu einer Auswahl Fragen zu stellen.",
   "Pick a question above, or type your own.": "Wähle oben eine Frage oder stelle eine eigene.",
   "Ask about this passage...": "Frage zu dieser Passage stellen ...",
-  "Continue in Notebook": "Im Notizbuch fortfahren",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic-Konfiguration",
@@ -2209,5 +2208,8 @@
   "Explain": "Erklären",
   "Summarize": "Zusammenfassen",
   "Background": "Hintergrund",
-  "Vocabulary": "Wortschatz"
+  "Vocabulary": "Wortschatz",
+  "Saved to notes": "In Notizen gespeichert",
+  "Save as Note": "Als Notiz speichern",
+  "Indexing failed: {{error}}": "Indizierung fehlgeschlagen: {{error}}"
 }

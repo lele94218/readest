@@ -2140,7 +2140,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "選択箇所について質問するには、設定 → AIアシスタント でAIアシスタントを有効にしてください。",
   "Pick a question above, or type your own.": "上の質問を選ぶか、自由に入力してください。",
   "Ask about this passage...": "この文章について質問する...",
-  "Continue in Notebook": "ノートで続ける",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic設定",
@@ -2150,5 +2149,8 @@
   "Explain": "説明",
   "Summarize": "要約",
   "Background": "背景",
-  "Vocabulary": "語彙"
+  "Vocabulary": "語彙",
+  "Saved to notes": "ノートに保存しました",
+  "Save as Note": "ノートに保存",
+  "Indexing failed: {{error}}": "インデックス作成に失敗しました: {{error}}"
 }

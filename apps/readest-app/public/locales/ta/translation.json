@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "தேர்ந்தெடுத்த பகுதி குறித்துக் கேட்க அமைப்புகள் → AI உதவியாளர் என்பதில் AI உதவியாளரை இயக்கவும்.",
   "Pick a question above, or type your own.": "மேலே உள்ள கேள்வியைத் தேர்ந்தெடுக்கவும், அல்லது உங்கள் கேள்வியைத் தட்டச்சு செய்யவும்.",
   "Ask about this passage...": "இந்தப் பகுதி குறித்துக் கேளுங்கள்...",
-  "Continue in Notebook": "குறிப்பேட்டில் தொடரவும்",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic உள்ளமைவு",
@@ -2209,5 +2208,8 @@
   "Explain": "விளக்கு",
   "Summarize": "சுருக்கு",
   "Background": "பின்னணி",
-  "Vocabulary": "சொற்களஞ்சியம்"
+  "Vocabulary": "சொற்களஞ்சியம்",
+  "Saved to notes": "குறிப்புகளில் சேமிக்கப்பட்டது",
+  "Save as Note": "குறிப்பாகச் சேமி",
+  "Indexing failed: {{error}}": "அட்டவணைப்படுத்தல் தோல்வி: {{error}}"
 }

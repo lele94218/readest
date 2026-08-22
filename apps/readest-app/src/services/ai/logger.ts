@@ -16,7 +16,10 @@ function formatData(data: unknown): string {
 }
 
 function log(level: LogLevel, module: string, message: string, data?: unknown) {
-  if (!DEBUG) return;
+  // Errors always surface. Gating them behind DEBUG made every AI failure
+  // silent: indexing a book would just do nothing at all, with no toast, no
+  // console output, and the spinner reset by the caller's `finally`.
+  if (!DEBUG && level !== 'error') return;
   const timestamp = new Date().toISOString().split('T')[1]?.slice(0, 12);
   const prefix = `${PREFIX}[${timestamp}][${module}]`;
   const formatted = data !== undefined ? `${message} ${formatData(data)}` : message;

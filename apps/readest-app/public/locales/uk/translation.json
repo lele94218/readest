@@ -2317,7 +2317,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Увімкніть ШІ-асистента в Налаштування → ШІ-асистент, щоб ставити запитання про виділений текст.",
   "Pick a question above, or type your own.": "Оберіть запитання вище або введіть власне.",
   "Ask about this passage...": "Запитайте про цей уривок...",
-  "Continue in Notebook": "Продовжити в нотатнику",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Налаштування Anthropic",
@@ -2327,5 +2326,8 @@
   "Explain": "Пояснити",
   "Summarize": "Підсумувати",
   "Background": "Контекст",
-  "Vocabulary": "Словник"
+  "Vocabulary": "Словник",
+  "Saved to notes": "Збережено в нотатках",
+  "Save as Note": "Зберегти як нотатку",
+  "Indexing failed: {{error}}": "Індексація не вдалася: {{error}}"
 }

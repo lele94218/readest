@@ -27,6 +27,7 @@ import {
 import type { EmbeddingProgress, AISettings, AIMessage } from '@/services/ai/types';
 import type { RetrievedChunk } from '@/services/reedy/retrieval/BookRetriever';
 import { useEnv } from '@/context/EnvContext';
+import { eventDispatcher } from '@/utils/event';
 import { isTauriAppPlatform } from '@/services/environment';
 import type { AppService } from '@/types/system';
 import { ReedyAssistant } from '@/services/reedy/ui/ReedyAssistant';
@@ -363,12 +364,21 @@ const LegacyAIAssistant = ({ bookKey }: AIAssistantProps) => {
       await backend.indexBook(bookData.bookDoc, bookHash, { onProgress: setIndexProgress });
       setIndexed(true);
     } catch (e) {
-      aiLogger.rag.indexError(bookHash, (e as Error).message);
+      const message = (e as Error).message;
+      aiLogger.rag.indexError(bookHash, message);
+      // Without this the failure is invisible: the spinner resets below and
+      // the panel falls back to the "Index This Book" prompt, so the button
+      // looks like it did nothing at all.
+      eventDispatcher.dispatch('toast', {
+        type: 'error',
+        message: _('Indexing failed: {{error}}', { error: message }),
+        timeout: 5000,
+      });
     } finally {
       setIsIndexing(false);
       setIndexProgress(null);
     }
-  }, [bookData?.bookDoc, bookHash, aiSettings]);
+  }, [bookData?.bookDoc, bookHash, aiSettings, backend, _]);
 
   const handleResetIndex = useCallback(async () => {
     if (!appService || !backend) return;

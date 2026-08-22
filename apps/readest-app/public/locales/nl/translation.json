@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Schakel de AI-assistent in via Instellingen → AI-assistent om vragen te stellen over een selectie.",
   "Pick a question above, or type your own.": "Kies hierboven een vraag of typ je eigen vraag.",
   "Ask about this passage...": "Stel een vraag over deze passage...",
-  "Continue in Notebook": "Verder in notitieblok",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic-configuratie",
@@ -2209,5 +2208,8 @@
   "Explain": "Uitleggen",
   "Summarize": "Samenvatten",
   "Background": "Achtergrond",
-  "Vocabulary": "Woordenschat"
+  "Vocabulary": "Woordenschat",
+  "Saved to notes": "Opgeslagen in notities",
+  "Save as Note": "Opslaan als notitie",
+  "Indexing failed: {{error}}": "Indexeren mislukt: {{error}}"
 }

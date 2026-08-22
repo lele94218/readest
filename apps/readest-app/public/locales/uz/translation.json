@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Tanlangan matn haqida so‘rash uchun Sozlamalar → AI yordamchi bo‘limida AI yordamchini yoqing.",
   "Pick a question above, or type your own.": "Yuqoridagi savolni tanlang yoki o‘zingiznikini yozing.",
   "Ask about this passage...": "Ushbu parcha haqida so‘rang...",
-  "Continue in Notebook": "Daftarda davom ettirish",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic konfiguratsiyasi",
@@ -2209,5 +2208,8 @@
   "Explain": "Tushuntirish",
   "Summarize": "Xulosa qilish",
   "Background": "Fon",
-  "Vocabulary": "Lug‘at"
+  "Vocabulary": "Lug‘at",
+  "Saved to notes": "Eslatmalarga saqlandi",
+  "Save as Note": "Eslatma sifatida saqlash",
+  "Indexing failed: {{error}}": "Indekslash muvaffaqiyatsiz: {{error}}"
 }

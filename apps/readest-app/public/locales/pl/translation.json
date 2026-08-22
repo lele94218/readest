@@ -2317,7 +2317,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Włącz asystenta AI w Ustawienia → Asystent AI, aby zadawać pytania o zaznaczenie.",
   "Pick a question above, or type your own.": "Wybierz pytanie powyżej albo wpisz własne.",
   "Ask about this passage...": "Zapytaj o ten fragment...",
-  "Continue in Notebook": "Kontynuuj w notatniku",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Konfiguracja Anthropic",
@@ -2327,5 +2326,8 @@
   "Explain": "Wyjaśnij",
   "Summarize": "Podsumuj",
   "Background": "Kontekst",
-  "Vocabulary": "Słownictwo"
+  "Vocabulary": "Słownictwo",
+  "Saved to notes": "Zapisano w notatkach",
+  "Save as Note": "Zapisz jako notatkę",
+  "Indexing failed: {{error}}": "Indeksowanie nie powiodło się: {{error}}"
 }

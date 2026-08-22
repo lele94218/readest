@@ -2140,7 +2140,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Aktifkan asisten AI di Pengaturan → Asisten AI untuk bertanya tentang teks yang dipilih.",
   "Pick a question above, or type your own.": "Pilih pertanyaan di atas, atau tulis sendiri.",
   "Ask about this passage...": "Tanyakan tentang bagian ini...",
-  "Continue in Notebook": "Lanjutkan di Buku Catatan",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Konfigurasi Anthropic",
@@ -2150,5 +2149,8 @@
   "Explain": "Jelaskan",
   "Summarize": "Ringkas",
   "Background": "Latar Belakang",
-  "Vocabulary": "Kosakata"
+  "Vocabulary": "Kosakata",
+  "Saved to notes": "Disimpan ke catatan",
+  "Save as Note": "Simpan sebagai catatan",
+  "Indexing failed: {{error}}": "Pengindeksan gagal: {{error}}"
 }

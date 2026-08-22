@@ -2140,7 +2140,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "在 設定 → AI 助手 中開啟 AI 助手，即可就選取內容提問。",
   "Pick a question above, or type your own.": "選一個上面的問題，或自行輸入。",
   "Ask about this passage...": "就這段內容提問...",
-  "Continue in Notebook": "在筆記本中繼續",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic 設定",
@@ -2150,5 +2149,8 @@
   "Explain": "解釋",
   "Summarize": "摘要",
   "Background": "背景",
-  "Vocabulary": "生字"
+  "Vocabulary": "生字",
+  "Saved to notes": "已存入筆記",
+  "Save as Note": "存為筆記",
+  "Indexing failed: {{error}}": "索引失敗：{{error}}"
 }

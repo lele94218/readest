@@ -2140,7 +2140,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Bật trợ lý AI trong Cài đặt → Trợ lý AI để hỏi về phần văn bản đã chọn.",
   "Pick a question above, or type your own.": "Chọn một câu hỏi ở trên, hoặc tự nhập câu hỏi của bạn.",
   "Ask about this passage...": "Hỏi về đoạn này...",
-  "Continue in Notebook": "Tiếp tục trong Sổ ghi chép",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Cấu hình Anthropic",
@@ -2150,5 +2149,8 @@
   "Explain": "Giải thích",
   "Summarize": "Tóm tắt",
   "Background": "Bối cảnh",
-  "Vocabulary": "Từ vựng"
+  "Vocabulary": "Từ vựng",
+  "Saved to notes": "Đã lưu vào ghi chú",
+  "Save as Note": "Lưu thành ghi chú",
+  "Indexing failed: {{error}}": "Lập chỉ mục thất bại: {{error}}"
 }

@@ -2140,7 +2140,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "เปิดผู้ช่วย AI ที่ การตั้งค่า → ผู้ช่วย AI เพื่อถามเกี่ยวกับข้อความที่เลือก",
   "Pick a question above, or type your own.": "เลือกคำถามด้านบน หรือพิมพ์คำถามของคุณเอง",
   "Ask about this passage...": "ถามเกี่ยวกับข้อความตอนนี้...",
-  "Continue in Notebook": "ทำต่อในสมุดบันทึก",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "การกำหนดค่า Anthropic",
@@ -2150,5 +2149,8 @@
   "Explain": "อธิบาย",
   "Summarize": "สรุป",
   "Background": "ภูมิหลัง",
-  "Vocabulary": "คำศัพท์"
+  "Vocabulary": "คำศัพท์",
+  "Saved to notes": "บันทึกลงในโน้ตแล้ว",
+  "Save as Note": "บันทึกเป็นโน้ต",
+  "Indexing failed: {{error}}": "การทำดัชนีล้มเหลว: {{error}}"
 }

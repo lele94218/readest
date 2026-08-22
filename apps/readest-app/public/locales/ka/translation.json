@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "მონიშნულზე კითხვების დასასმელად ჩართეთ AI ასისტენტი პარამეტრები → AI ასისტენტი განყოფილებაში.",
   "Pick a question above, or type your own.": "აირჩიეთ კითხვა ზემოთ, ან აკრიფეთ თქვენი.",
   "Ask about this passage...": "იკითხეთ ამ ნაწყვეტზე...",
-  "Continue in Notebook": "გაგრძელება რვეულში",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic-ის კონფიგურაცია",
@@ -2209,5 +2208,8 @@
   "Explain": "ახსნა",
   "Summarize": "შეჯამება",
   "Background": "ფონი",
-  "Vocabulary": "ლექსიკა"
+  "Vocabulary": "ლექსიკა",
+  "Saved to notes": "შენახულია ჩანაწერებში",
+  "Save as Note": "შენახვა ჩანაწერად",
+  "Indexing failed: {{error}}": "ინდექსირება ვერ მოხერხდა: {{error}}"
 }

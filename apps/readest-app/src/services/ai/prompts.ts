@@ -91,6 +91,16 @@ export const SELECTION_ASK_PRESETS = [
     instruction: 'Explain what this passage means, in plain language.',
   },
   {
+    id: 'translate',
+    // No target language here: the system prompt already pins the answer to the
+    // reader's UI language, so a Chinese UI translates into Chinese and an
+    // English one into English without a second setting to keep in sync.
+    label: _('Translate'),
+    instruction:
+      'Translate this passage into the language you are answering in. ' +
+      'Give the translation only, with no commentary or explanation.',
+  },
+  {
     id: 'summarize',
     label: _('Summarize'),
     instruction: 'Summarize this passage in two or three sentences.',

@@ -2317,7 +2317,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Включите ИИ-ассистента в Настройки → ИИ-ассистент, чтобы задавать вопросы о выделенном тексте.",
   "Pick a question above, or type your own.": "Выберите вопрос выше или введите свой.",
   "Ask about this passage...": "Спросите об этом отрывке...",
-  "Continue in Notebook": "Продолжить в блокноте",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Настройка Anthropic",
@@ -2327,5 +2326,8 @@
   "Explain": "Объяснить",
   "Summarize": "Кратко изложить",
   "Background": "Контекст",
-  "Vocabulary": "Словарь"
+  "Vocabulary": "Словарь",
+  "Saved to notes": "Сохранено в заметки",
+  "Save as Note": "Сохранить как заметку",
+  "Indexing failed: {{error}}": "Индексация не удалась: {{error}}"
 }

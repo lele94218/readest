@@ -43,7 +43,8 @@ interface AskAIPopupProps {
   popupWidth: number;
   popupHeight: number;
   onDismiss: () => void;
-  onOpenInNotebook?: () => void;
+  /** Persist the exchange as a note anchored to the passage. */
+  onSaveAsNote?: (question: string, answer: string) => void;
 }
 
 const AskAIPopup: React.FC<AskAIPopupProps> = ({
@@ -54,7 +55,7 @@ const AskAIPopup: React.FC<AskAIPopupProps> = ({
   popupWidth,
   popupHeight,
   onDismiss,
-  onOpenInNotebook,
+  onSaveAsNote,
 }) => {
   const _ = useTranslation();
   const { settings } = useSettingsStore();
@@ -63,6 +64,9 @@ const AskAIPopup: React.FC<AskAIPopupProps> = ({
 
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
+  // What was actually sent — a preset instruction or the typed question.
+  // The notebook hand-off replays it, so the input box alone is not enough.
+  const [asked, setAsked] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -88,6 +92,7 @@ const AskAIPopup: React.FC<AskAIPopupProps> = ({
       setLoading(true);
       setError(null);
       setAnswer('');
+      setAsked(asked.trim());
 
       const ctx: SelectionAskContext = {
         bookTitle: bookData?.book?.title || _('this book'),
@@ -214,13 +219,13 @@ const AskAIPopup: React.FC<AskAIPopupProps> = ({
             >
               <FiSend size={14} />
             </button>
-            {onOpenInNotebook && answer && !loading && (
+            {onSaveAsNote && answer && !loading && (
               <button
                 type='button'
                 className='shrink-0 whitespace-nowrap text-xs text-base-content/60 underline'
-                onClick={onOpenInNotebook}
+                onClick={() => onSaveAsNote(asked, answer)}
               >
-                {_('Continue in Notebook')}
+                {_('Save as Note')}
               </button>
             )}
           </form>

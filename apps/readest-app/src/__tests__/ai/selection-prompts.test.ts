@@ -58,6 +58,14 @@ describe('buildSelectionUserPrompt', () => {
 });
 
 describe('SELECTION_ASK_PRESETS', () => {
+  it('translates into the UI language rather than a hardcoded one', () => {
+    const translate = SELECTION_ASK_PRESETS.find((p) => p.id === 'translate');
+    expect(translate).toBeDefined();
+    // The target language comes from buildSelectionSystemPrompt's
+    // responseLanguage, so the instruction must not name a language itself.
+    expect(translate!.instruction).not.toMatch(/chinese|english|中文/i);
+  });
+
   it('exposes unique ids and a non-empty instruction for each preset', () => {
     const ids = SELECTION_ASK_PRESETS.map((p) => p.id);
     expect(new Set(ids).size).toBe(ids.length);

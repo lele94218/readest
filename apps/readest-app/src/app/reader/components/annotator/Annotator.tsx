@@ -60,7 +60,6 @@ import { buildAnnotationUrl } from '@/utils/deeplink';
 import { DEFAULT_NOTE_EXPORT_CONFIG } from '@/services/constants';
 import { canShareText, shareSelectedText } from '@/utils/share';
 import { getToolbarToolTypes, supportsProofread } from '@/utils/annotationToolbar';
-import useOpenAIInNotebook from '../../hooks/useOpenAIInNotebook';
 import { AnnotationToolType } from '@/types/annotator';
 import { TransformContext } from '@/services/transformers/types';
 import { transformContent } from '@/services/transformService';
@@ -149,7 +148,6 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
   // per page turn — the `useEffect(..., [progress])` below uses it to
   // re-apply local-page annotations after each relocate.
   const progress = useBookProgress(bookKey)!;
-  const { openAIInNotebook } = useOpenAIInNotebook();
   const bookData = getBookData(bookKey)!;
   const view = getView(bookKey);
   const viewSettings = getViewSettings(bookKey)!;
@@ -1323,6 +1321,61 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
     handleDismissPopupAndSelection();
   };
 
+  /**
+   * Persist an Ask AI exchange as a note on the passage it was about.
+   *
+   * The notebook's AI tab would be the natural home, but its assistant-ui
+   * runtime crashes on WebKit — and a note is the more durable place anyway:
+   * it anchors to the CFI, lists in the sidebar, exports with the rest, and
+   * syncs. Mirrors Notebook.handleSaveNote: attach to the highlight already
+   * at this CFI, or create one so the note has something to hang off.
+   */
+  const handleSaveAIAnswerAsNote = (question: string, answer: string) => {
+    if (!selection || !selection.text) return;
+    const cfi = selection.popup ? selection.cfi : view?.getCFI(selection.index, selection.range);
+    if (!cfi) return;
+    const note = question ? `${question}\n\n${answer}` : answer;
+    const { booknotes: annotations = [] } = config;
+    const existingIndex = annotations.findIndex(
+      (annotation) =>
+        annotation.cfi === cfi && annotation.type === 'annotation' && !annotation.deletedAt,
+    );
+    if (existingIndex !== -1) {
+      const existing = annotations[existingIndex]!;
+      const updated: BookNote = { ...existing, note, updatedAt: Date.now() };
+      annotations[existingIndex] = updated;
+      view?.addAnnotation({ ...updated, value: `${NOTE_PREFIX}${updated.cfi}` });
+    } else {
+      const style = settings.globalReadSettings.highlightStyle;
+      const color = settings.globalReadSettings.highlightStyles[style];
+      const annotation: BookNote = {
+        id: uniqueId(),
+        type: 'annotation',
+        cfi,
+        style,
+        color,
+        note,
+        text: selection.text,
+        page: progress.page,
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+      };
+      view?.addAnnotation(annotation);
+      view?.addAnnotation({ ...annotation, value: `${NOTE_PREFIX}${annotation.cfi}` });
+      annotations.push(annotation);
+    }
+    const updatedConfig = updateBooknotes(bookKey, annotations);
+    if (updatedConfig) {
+      saveConfig(envConfig, bookKey, updatedConfig, settings);
+    }
+    eventDispatcher.dispatch('toast', {
+      type: 'info',
+      message: _('Saved to notes'),
+      timeout: 2000,
+    });
+    handleDismissPopupAndSelection();
+  };
+
   const handleHighlight = (update = false, highlightStyle?: HighlightStyle): BookNote | null => {
     if (!selection || !selection.text) return null;
     setHighlightOptionsVisible(true);
@@ -2187,10 +2240,7 @@ const Annotator: React.FC<{ bookKey: string; contentInsets: Insets }> = ({
           popupWidth={askAIPopupWidth}
           popupHeight={askAIPopupHeight}
           onDismiss={handleDismissPopupShowToolbar}
-          onOpenInNotebook={() => {
-            handleDismissPopupAndSelection();
-            openAIInNotebook({ bookHash: bookData.book?.hash });
-          }}
+          onSaveAsNote={(question, answer) => handleSaveAIAnswerAsNote(question, answer)}
         />
       )}
       {showProofreadPopup && trianglePosition && proofreadPopupPosition && selection && (

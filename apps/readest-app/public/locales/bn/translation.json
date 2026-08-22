@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "নির্বাচিত অংশ সম্পর্কে জিজ্ঞাসা করতে সেটিংস → AI সহকারী-তে AI সহকারী চালু করুন।",
   "Pick a question above, or type your own.": "উপরের একটি প্রশ্ন বেছে নিন, অথবা নিজের প্রশ্ন লিখুন।",
   "Ask about this passage...": "এই অংশ সম্পর্কে জিজ্ঞাসা করুন...",
-  "Continue in Notebook": "নোটবুকে চালিয়ে যান",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic কনফিগারেশন",
@@ -2209,5 +2208,8 @@
   "Explain": "ব্যাখ্যা করুন",
   "Summarize": "সারসংক্ষেপ",
   "Background": "প্রেক্ষাপট",
-  "Vocabulary": "শব্দভান্ডার"
+  "Vocabulary": "শব্দভান্ডার",
+  "Saved to notes": "নোটে সংরক্ষিত হয়েছে",
+  "Save as Note": "নোট হিসেবে সংরক্ষণ",
+  "Indexing failed: {{error}}": "ইনডেক্সিং ব্যর্থ: {{error}}"
 }

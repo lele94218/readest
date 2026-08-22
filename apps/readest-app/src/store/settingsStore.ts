@@ -67,8 +67,21 @@ export const useSettingsStore = create<SettingsState>((set) => ({
     // querystring above localStorage and navigator (see i18n.ts detection
     // order); applying the saved uiLanguage at boot used to override it, so
     // the documented highest-priority source silently did nothing.
-    const override =
-      typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('lng') : null;
+    //
+    // The override sticks for the rest of the session: the app navigates
+    // client-side (library -> reader), so the query string is already gone by
+    // the time the next route boots and re-applies the stored uiLanguage.
+    let override: string | null = null;
+    if (typeof window !== 'undefined') {
+      override = new URLSearchParams(window.location.search).get('lng');
+      try {
+        if (override) window.sessionStorage.setItem('uiLanguageOverride', override);
+        else override = window.sessionStorage.getItem('uiLanguageOverride');
+      } catch {
+        // sessionStorage throws in private / blocked contexts; the override
+        // simply does not persist there.
+      }
+    }
     const locale = override || uiLanguage || navigator.language;
     i18n.changeLanguage(locale);
     initDayjs(locale);

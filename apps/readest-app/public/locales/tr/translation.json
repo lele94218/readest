@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Bir seçim hakkında soru sormak için Ayarlar → YZ Asistanı bölümünden YZ asistanını açın.",
   "Pick a question above, or type your own.": "Yukarıdan bir soru seçin veya kendi sorunuzu yazın.",
   "Ask about this passage...": "Bu pasaj hakkında sorun...",
-  "Continue in Notebook": "Not Defterinde Devam Et",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic Yapılandırması",
@@ -2209,5 +2208,8 @@
   "Explain": "Açıkla",
   "Summarize": "Özetle",
   "Background": "Arka Plan",
-  "Vocabulary": "Kelime Dağarcığı"
+  "Vocabulary": "Kelime Dağarcığı",
+  "Saved to notes": "Notlara kaydedildi",
+  "Save as Note": "Not olarak kaydet",
+  "Indexing failed: {{error}}": "Dizinleme başarısız: {{error}}"
 }

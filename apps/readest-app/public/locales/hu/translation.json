@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Kapcsold be az AI asszisztenst a Beállítások → AI asszisztens menüben, hogy kérdezhess a kijelölésről.",
   "Pick a question above, or type your own.": "Válassz egy fenti kérdést, vagy írd meg a sajátodat.",
   "Ask about this passage...": "Kérdezz erről a részletről...",
-  "Continue in Notebook": "Folytatás a jegyzetfüzetben",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic konfiguráció",
@@ -2209,5 +2208,8 @@
   "Explain": "Magyarázd el",
   "Summarize": "Foglald össze",
   "Background": "Háttér",
-  "Vocabulary": "Szókincs"
+  "Vocabulary": "Szókincs",
+  "Saved to notes": "Elmentve a jegyzetekbe",
+  "Save as Note": "Mentés jegyzetként",
+  "Indexing failed: {{error}}": "Az indexelés sikertelen: {{error}}"
 }

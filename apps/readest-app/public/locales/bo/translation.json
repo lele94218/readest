@@ -2140,7 +2140,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "བདམས་པའི་ཡི་གེའི་སྐོར་དྲི་བ་འདྲི་བར་ སྒྲིག་སྟངས། → AI རོགས་པ། ནང་ AI རོགས་པ་ཁ་ཕྱེ་རོགས།",
   "Pick a question above, or type your own.": "གོང་གི་དྲི་བ་ཞིག་འདེམས་རོགས། ཡང་ན་རང་གི་དྲི་བ་འབྲི་རོགས།",
   "Ask about this passage...": "དུམ་བུ་འདིའི་སྐོར་དྲི་བ།...",
-  "Continue in Notebook": "ཟིན་དེབ་ནང་མུ་མཐུད།",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Anthropic སྒྲིག་བཀོད།",
@@ -2150,5 +2149,8 @@
   "Explain": "འགྲེལ་བཤད།",
   "Summarize": "བསྡུས་དོན།",
   "Background": "རྒྱབ་ལྗོངས།",
-  "Vocabulary": "ཐ་སྙད།"
+  "Vocabulary": "ཐ་སྙད།",
+  "Saved to notes": "ཟིན་བྲིས་སུ་ཉར་ཟིན།",
+  "Save as Note": "ཟིན་བྲིས་སུ་ཉར།",
+  "Indexing failed: {{error}}": "དཀར་ཆག་བཟོ་བར་ཕམ་སོང་། {{error}}"
 }

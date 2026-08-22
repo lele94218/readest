@@ -1,5 +1,7 @@
 import { embed, embedMany } from 'ai';
 import { getAIProvider } from '@/services/ai/providers';
+import { DEFAULT_ANTHROPIC_MODEL } from '@/services/ai/providers/AnthropicProvider';
+import { DEFAULT_OPENAI_MODEL } from '@/services/ai/providers/OpenAIProvider';
 import type { AISettings } from '@/services/ai/types';
 import type { ChatModel } from './ChatModel';
 import type { EmbeddingModel } from './EmbeddingModel';
@@ -121,9 +123,9 @@ function chatModelIdFor(settings: AISettings): string {
     case 'openrouter':
       return settings.openrouterModel || 'openai/gpt-4o-mini';
     case 'anthropic':
-      return settings.anthropicModel || 'claude-opus-5';
+      return settings.anthropicModel || DEFAULT_ANTHROPIC_MODEL;
     case 'openai':
-      return settings.openaiModel || 'gpt-5.1';
+      return settings.openaiModel || DEFAULT_OPENAI_MODEL;
   }
 }
 

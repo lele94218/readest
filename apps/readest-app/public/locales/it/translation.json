@@ -2258,7 +2258,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Attiva l'assistente IA in Impostazioni → Assistente IA per fare domande su una selezione.",
   "Pick a question above, or type your own.": "Scegli una domanda qui sopra oppure scrivi la tua.",
   "Ask about this passage...": "Fai una domanda su questo passaggio...",
-  "Continue in Notebook": "Continua nel quaderno",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Configurazione Anthropic",
@@ -2268,5 +2267,8 @@
   "Explain": "Spiega",
   "Summarize": "Riassumi",
   "Background": "Contesto",
-  "Vocabulary": "Lessico"
+  "Vocabulary": "Lessico",
+  "Saved to notes": "Salvato nelle note",
+  "Save as Note": "Salva come nota",
+  "Indexing failed: {{error}}": "Indicizzazione non riuscita: {{error}}"
 }

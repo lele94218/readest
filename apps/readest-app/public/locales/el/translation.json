@@ -2199,7 +2199,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Ενεργοποιήστε τον βοηθό AI στις Ρυθμίσεις → Βοηθός AI για να κάνετε ερωτήσεις σε μια επιλογή.",
   "Pick a question above, or type your own.": "Διαλέξτε μια ερώτηση παραπάνω ή γράψτε τη δική σας.",
   "Ask about this passage...": "Ρωτήστε για αυτό το απόσπασμα...",
-  "Continue in Notebook": "Συνέχεια στο σημειωματάριο",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Διαμόρφωση Anthropic",
@@ -2209,5 +2208,8 @@
   "Explain": "Εξήγηση",
   "Summarize": "Σύνοψη",
   "Background": "Υπόβαθρο",
-  "Vocabulary": "Λεξιλόγιο"
+  "Vocabulary": "Λεξιλόγιο",
+  "Saved to notes": "Αποθηκεύτηκε στις σημειώσεις",
+  "Save as Note": "Αποθήκευση ως σημείωση",
+  "Indexing failed: {{error}}": "Η ευρετηρίαση απέτυχε: {{error}}"
 }

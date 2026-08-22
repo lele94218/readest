@@ -2317,7 +2317,6 @@
   "Turn on the AI assistant in Settings → AI Assistant to ask about a selection.": "Vklopite AI pomočnika v Nastavitve → AI pomočnik, da lahko sprašujete o izbiri.",
   "Pick a question above, or type your own.": "Izberite vprašanje zgoraj ali vnesite svojega.",
   "Ask about this passage...": "Vprašajte o tem odlomku...",
-  "Continue in Notebook": "Nadaljuj v beležnici",
   "Anthropic (Claude)": "Anthropic (Claude)",
   "OpenAI": "OpenAI",
   "Anthropic Configuration": "Konfiguracija Anthropic",
@@ -2327,5 +2326,8 @@
   "Explain": "Razloži",
   "Summarize": "Povzemi",
   "Background": "Ozadje",
-  "Vocabulary": "Besedišče"
+  "Vocabulary": "Besedišče",
+  "Saved to notes": "Shranjeno med beležke",
+  "Save as Note": "Shrani kot beležko",
+  "Indexing failed: {{error}}": "Indeksiranje ni uspelo: {{error}}"
 }
