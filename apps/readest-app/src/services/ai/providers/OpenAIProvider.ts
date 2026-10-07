@@ -6,18 +6,21 @@ import { AI_TIMEOUTS } from '../utils/retry';
 import { getAIFetch } from '../utils/httpFetch';
 
 const DEFAULT_BASE_URL = 'https://api.openai.com/v1';
-export const DEFAULT_OPENAI_MODEL = 'gpt-5.4-mini';
+export const DEFAULT_OPENAI_MODEL = 'gpt-6.1-sol';
 export const DEFAULT_OPENAI_EMBEDDING_MODEL = 'text-embedding-3-small';
 
 /**
  * Curated picker list. Prices are USD per million tokens (input / output),
- * checked against developers.openai.com/api/docs/pricing on 2026-08-21.
+ * checked against developers.openai.com/api/docs/pricing on 2026-10-06.
+ *
+ * gpt-6-sol is left out: it is priced identically to gpt-6.1-sol, which
+ * supersedes it. The 5.6 line still exists upstream but every tier here is
+ * cheaper, so there is nothing to keep it for.
  */
 export const OPENAI_MODELS = [
-  { id: 'gpt-5.6-sol', label: 'GPT-5.6 Sol', input: 4, output: 20 },
-  { id: 'gpt-5.4-mini', label: 'GPT-5.4 mini', input: 0.75, output: 4.5 },
-  { id: 'gpt-5.4-nano', label: 'GPT-5.4 nano', input: 0.2, output: 1.25 },
-  { id: 'gpt-4o-mini', label: 'GPT-4o mini', input: 0.15, output: 0.6 },
+  { id: 'gpt-6-astra', label: 'GPT-6 Astra', input: 10, output: 50 },
+  { id: 'gpt-6.1-sol', label: 'GPT-6.1 Sol', input: 2, output: 10 },
+  { id: 'gpt-6-luna', label: 'GPT-6 Luna', input: 0.1, output: 0.5 },
 ] as const;
 
 export const OPENAI_EMBEDDING_MODELS = [
