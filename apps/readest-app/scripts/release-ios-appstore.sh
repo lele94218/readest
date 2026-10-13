@@ -5,6 +5,17 @@
 # how 0.11.18 shipped with a dead widget despite the guard existing).
 set -euo pipefail
 
+ARCHIVE=src-tauri/gen/apple/build/Readest_iOS.xcarchive
+BUNDLE_DIR=src-tauri/gen/apple/build/arm64
+IPA_BUNDLE=$BUNDLE_DIR/Readest.ipa
+
+# Drop any previous archive BEFORE building. The `|| true` below means a build
+# that dies early (e.g. cargo missing from PATH) is indistinguishable from the
+# tolerated export failure, and the `test -d` guard would then happily accept
+# last release's archive and ship it. That is how a 0.12.13 release attempt
+# uploaded a 0.12.12 binary; only altool's duplicate-version check caught it.
+rm -rf "$ARCHIVE"
+
 # Build the archive only. Tauri's own export step writes an ExportOptions.plist
 # containing just `method: debugging` — no team, no signing style, no profile
 # map — so exportArchive ignores this fork's provisioning profiles and dies with
@@ -12,10 +23,6 @@ set -euo pipefail
 # iCloud, and Sign In with Apple features". `|| true` lets that failure through;
 # the archive it produced beforehand is what we actually need.
 pnpm tauri ios build --export-method app-store-connect || true
-
-ARCHIVE=src-tauri/gen/apple/build/Readest_iOS.xcarchive
-BUNDLE_DIR=src-tauri/gen/apple/build/arm64
-IPA_BUNDLE=$BUNDLE_DIR/Readest.ipa
 
 test -d "$ARCHIVE" || { echo "no archive at $ARCHIVE — the build failed before archiving"; exit 1; }
 
