@@ -59,3 +59,11 @@ fastlane/metadata-play/android/en-US/changelogs
 
 apps/readest.koplugin/bin/
 apps/readest.koplugin/native/localsend-bin/target/
+
+# scripts/tauri.mjs parks the wry Cargo.lock here during a Linux CEF build
+/Cargo.lock.wry
+
+# Stray local clones, not submodules and not referenced by any Cargo.toml.
+# Ignored so `git add -A` cannot commit them as URL-less gitlinks.
+/packages/tao/
+/packages/tauri-plugins/

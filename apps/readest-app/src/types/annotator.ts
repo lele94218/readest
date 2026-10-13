@@ -9,4 +9,5 @@ export type AnnotationToolType =
   | 'tts'
   | 'proofread'
   | 'ask-ai'
-  | 'share';
+  | 'share'
+  | 'quotecard';

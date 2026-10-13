@@ -2,6 +2,7 @@ import { convertFileSrc } from '@tauri-apps/api/core';
 
 import type { AppService, BaseDir } from '@/types/system';
 import { NativeNarrationPlayer } from '@/services/tts/mediaOverlay/NativeNarrationPlayer';
+import { mediaCrossOrigin } from './AudiobookClock';
 
 const PREVIEW_SECONDS = 15;
 
@@ -10,6 +11,8 @@ export interface AudiobookPreviewClip {
   file?: File;
   path?: string;
   base?: BaseDir;
+  /** A streamable URL (an Audiobookshelf track); `start` is then in-file seconds. */
+  url?: string;
   start: number;
   end: number;
 }
@@ -55,15 +58,19 @@ export class AudiobookPreviewPlayer {
 
     this.#activeId = clip.id;
     try {
-      if (this.#appService.appPlatform === 'tauri' && this.#appService.isMobileApp && clip.path) {
+      const mobileNative = this.#appService.appPlatform === 'tauri' && this.#appService.isMobileApp;
+      if (mobileNative && (clip.url || clip.path)) {
         this.#nativePlayer ??= new NativeNarrationPlayer();
-        const path = await this.#appService.resolveFilePath(clip.path, clip.base ?? 'None');
+        const path =
+          clip.url ?? (await this.#appService.resolveFilePath(clip.path!, clip.base ?? 'None'));
         await this.#nativePlayer.loadPath(clip.id, path, clip.start);
         await this.#nativePlayer.play();
       } else {
         const audio = new Audio();
         let url: string;
-        if (this.#appService.appPlatform === 'tauri' && clip.path) {
+        if (clip.url) {
+          url = clip.url;
+        } else if (this.#appService.appPlatform === 'tauri' && clip.path) {
           const path = await this.#appService.resolveFilePath(clip.path, clip.base ?? 'None');
           url = convertFileSrc(path);
         } else {
@@ -76,6 +83,7 @@ export class AudiobookPreviewPlayer {
           url = URL.createObjectURL(file);
           this.#objectUrl = url;
         }
+        audio.crossOrigin = mediaCrossOrigin(url);
         audio.src = url;
         audio.currentTime = clip.start;
         this.#endedListener = () => void this.stop();
