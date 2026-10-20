@@ -271,6 +271,23 @@ impl SwiftLinker {
                 // Where the artifacts will be generated to
                 .args(["--build-path", &out_path.display().to_string()]);
 
+            // READEST PATCH (Xcode 27 / Swift 6.4): SwiftPM flipped its default
+            // build system from `native` (llbuild) to `swiftbuild`. Under
+            // `swiftbuild` the package still builds and `swift build` still
+            // exits 0, but the products land in a different layout -- nothing
+            // appears at `<build-path>/<triple>/<config>/`, so the
+            // `rustc-link-search` emitted below points at a directory that does
+            // not exist and the link fails with the baffling
+            // `could not find native static library \`Tauri\``.
+            //
+            // Pin the old layout until the search path below understands
+            // `swiftbuild`'s. `native` is deprecated and will eventually be
+            // removed, so this is a stopgap, not a fix. Probe for the flag so
+            // toolchains predating it are unaffected.
+            if swift_supports_build_system_flag() {
+                command.args(["--build-system", "native"]);
+            }
+
             // Xcode's script phases export SDKROOT for the *product* platform
             // (e.g. iphoneos), which leaks into SPM's manifest compilation —
             // the manifest must always build for the host — and breaks it with
@@ -327,4 +344,16 @@ fn clang_link_search_path() -> String {
         }
     }
     panic!("clang is missing search paths");
+}
+
+/// Whether this toolchain's `swift build` accepts `--build-system`.
+///
+/// The flag arrived with SwiftPM's second build engine; passing it to an older
+/// toolchain is a hard error, so probe before relying on it.
+fn swift_supports_build_system_flag() -> bool {
+    Command::new("swift")
+        .args(["build", "--help"])
+        .output()
+        .map(|out| String::from_utf8_lossy(&out.stdout).contains("--build-system"))
+        .unwrap_or(false)
 }
