@@ -150,3 +150,4 @@ Index only — one line per memory. Detail lives in the topic files; do not rest
 - [Carousel spine lost on remount](carousel-spine-lost-on-remount.md) MERGED #6624+#6625 UNRELEASED…
 - [assistant-ui pin](assistant-ui-0-11-57-unbound-init-crash.md) — 必须锁 0.11.56，0.11.57+ 的 unbound `__internal_setGetInitializePromise` 会让 iOS 整个 app 崩在启动
 - [iOS 后台音频模式](ios-background-audio-mode-missing.md) — 锁屏停播是因为缺 `UIBackgroundModes=audio`；必须写在被跟踪的 `Info-ios.plist`，Xcode 里勾会被重新生成覆盖
+- [Xcode 27 构建失败](xcode27-swiftpm-swiftbuild-libtauri.md) — SwiftPM 默认换成 swiftbuild 导致找不到 `libTauri.a`；vendored swift-rs 已 pin `--build-system native`（临时方案）
