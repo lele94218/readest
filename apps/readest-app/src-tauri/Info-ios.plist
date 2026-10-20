@@ -4,6 +4,17 @@
   <dict>
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
+    <!-- Required for read-aloud to keep playing once the screen locks. The
+         native-tts plugin already claims a non-mixable .playback /.spokenAudio
+         AVAudioSession, but that only PERMITS background audio: without this
+         key iOS suspends the app at lock and playback dies. It must live here,
+         in the tracked source plist, because gen/apple/Readest_iOS/Info.plist
+         is gitignored and Tauri rewrites it on every build — enabling the
+         capability in Xcode instead would be lost on the next regeneration. -->
+    <key>UIBackgroundModes</key>
+    <array>
+      <string>audio</string>
+    </array>
     <key>NSLocalNetworkUsageDescription</key>
     <string>Readest uses the local network to discover nearby devices and transfer books with Nearby BookDrop.</string>
     <key>CFBundleLocalizations</key>
