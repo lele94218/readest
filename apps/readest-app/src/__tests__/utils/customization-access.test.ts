@@ -1,9 +1,11 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
 import { jwtDecode } from 'jwt-decode';
 import {
+  CUSTOM_TRANSLATOR_REQUIRES_PREMIUM,
   getCustomizationPurchased,
   isCustomizationAllowed,
   isCustomTranslatorAllowed,
+  isCustomTranslatorInPlan,
   isSelfHosted,
 } from '@/utils/access';
 
@@ -76,35 +78,48 @@ describe('self-hosted deployments', () => {
   });
 });
 
-// Custom translators (the user's own LLM endpoint or DeepL key) are premium.
-// The reader decides from the session token alone, so a signed-out reader is
-// locked unless the deployment is self-hosted.
-describe('isCustomTranslatorAllowed', () => {
+// Upstream's plan membership for custom translators (the user's own LLM
+// endpoint or DeepL key). The reader decides from the session token alone, so
+// a signed-out reader is locked unless the deployment is self-hosted. This is
+// what CUSTOM_TRANSLATOR_REQUIRES_PREMIUM gates; keep it honest so flipping
+// the switch back on restores upstream behaviour intact.
+describe('isCustomTranslatorInPlan', () => {
   afterEach(() => {
     vi.unstubAllEnvs();
   });
 
   it('allows a subscriber', () => {
-    expect(isCustomTranslatorAllowed(mockToken({ plan: 'plus' }))).toBe(true);
+    expect(isCustomTranslatorInPlan(mockToken({ plan: 'plus' }))).toBe(true);
   });
 
   it('allows a free user who bought Full Customization', () => {
-    expect(isCustomTranslatorAllowed(mockToken({ customization_purchased: true }))).toBe(true);
+    expect(isCustomTranslatorInPlan(mockToken({ customization_purchased: true }))).toBe(true);
   });
 
   it('denies a free user and a storage-only buyer', () => {
-    expect(isCustomTranslatorAllowed(mockToken({ plan: 'free' }))).toBe(false);
+    expect(isCustomTranslatorInPlan(mockToken({ plan: 'free' }))).toBe(false);
     expect(
-      isCustomTranslatorAllowed(mockToken({ plan: 'free', storage_purchased_bytes: 1e9 })),
+      isCustomTranslatorInPlan(mockToken({ plan: 'free', storage_purchased_bytes: 1e9 })),
     ).toBe(false);
   });
 
   it('denies a signed-out reader', () => {
-    expect(isCustomTranslatorAllowed(null)).toBe(false);
+    expect(isCustomTranslatorInPlan(null)).toBe(false);
   });
 
   it('allows a signed-out reader on a self-hosted deployment', () => {
     vi.stubEnv('NEXT_PUBLIC_SELF_HOSTED', 'true');
+    expect(isCustomTranslatorInPlan(null)).toBe(true);
+  });
+});
+
+// The paywall is off in this fork: a custom translator runs on the user's own
+// API key and talks to the provider straight from the device.
+describe('isCustomTranslatorAllowed (paywall off in this fork)', () => {
+  it('is open to every plan, signed in or not', () => {
+    expect(CUSTOM_TRANSLATOR_REQUIRES_PREMIUM).toBe(false);
+    expect(isCustomTranslatorAllowed(mockToken({ plan: 'free' }))).toBe(true);
+    expect(isCustomTranslatorAllowed(mockToken({ plan: 'plus' }))).toBe(true);
     expect(isCustomTranslatorAllowed(null)).toBe(true);
   });
 });

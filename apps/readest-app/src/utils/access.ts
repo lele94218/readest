@@ -206,10 +206,28 @@ export const isCustomizationAllowed = (plan: UserPlan, customizationPurchased: b
  * client-side gate, like the TTS cache. It reads the session token directly so
  * a reader window never sees a premium user as free while the plan loads.
  */
-export const isCustomTranslatorAllowed = (token: string | null | undefined): boolean =>
+export const isCustomTranslatorInPlan = (token: string | null | undefined): boolean =>
   token
     ? isCustomizationAllowed(getUserProfilePlan(token), getCustomizationPurchased(token))
     : isSelfHosted();
+
+/**
+ * Master switch for the custom-translator paywall, mirroring
+ * {@link CLOUD_SYNC_REQUIRES_PREMIUM}. ON: bringing your own translator
+ * requires a premium plan -- free users see the Custom Translators row with a
+ * Premium badge and an upgrade route, and the provider list hides the custom
+ * entries. Flipping it off ungates every plan.
+ *
+ * OFF in this fork. A custom translator runs on the user's own API key and the
+ * request goes from the device straight to the provider, so no Readest
+ * infrastructure is consumed by ungating it -- the same reasoning as
+ * {@link CLOUD_SYNC_REQUIRES_PREMIUM} and {@link ABS_OFFLINE_REQUIRES_PREMIUM}.
+ * The built-in translators still carry their own server-side daily quota.
+ */
+export const CUSTOM_TRANSLATOR_REQUIRES_PREMIUM = false;
+
+export const isCustomTranslatorAllowed = (token: string | null | undefined): boolean =>
+  !CUSTOM_TRANSLATOR_REQUIRES_PREMIUM || isCustomTranslatorInPlan(token);
 
 export const STORAGE_QUOTA_GRACE_BYTES = 10 * 1024 * 1024; // 10 MB grace
 
